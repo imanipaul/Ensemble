@@ -140,7 +140,7 @@ const main = async () => {
 
     const gitLabs = await thread.create({
         title: 'Git Labs Homework Tip',
-        content: 'Take your time, and carefully read the instructions for each problem. If you make a mistake, Git will not inform you anything is wrong, and you will just hang without any alert. So be careful. You could try to open two browser sessions.'.,
+        content: 'Take your time, and carefully read the instructions for each problem. If you make a mistake, Git will not inform you anything is wrong, and you will just hang without any alert. So be careful. You could try to open two browser sessions.',
     })
 
 
