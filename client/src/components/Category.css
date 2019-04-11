@@ -21,6 +21,7 @@
 }
 
 .category-info{
+    height: 75vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
