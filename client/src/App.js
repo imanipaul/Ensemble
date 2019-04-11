@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Switch, Route } from 'react-router-dom'
 import LandingPage from './components/LandingPage'
@@ -13,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route path='/' render={() => <LandingPage />} />
+          <Route exact path='/' render={() => <LandingPage />} />
           <Route path='/Home' render={() => <LoggedIn />} />
           <Route path='/Category' render={() => <Category />} />
           <Route path='/Profile' render={() => <Profile />} />
