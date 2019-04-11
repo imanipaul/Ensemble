@@ -3,25 +3,37 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
 }
 
 
 .threadbox{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
 }
 
 .threadpost {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+    
 }
 
 .commentbox {
-    height:5vh;
+    height:10vh;
+}
+
+#thread-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:20vw;
+}
+
+.wrap-thread-boxes{
+display: flex;
+justify-content: space-between;
+width: 74%;
 }
