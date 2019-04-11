@@ -24,9 +24,6 @@ const User = db.define('user', {
   },
   password_digest: {
     type: Sequelize.STRING
-  },
-  token: {
-    type: Sequelize.INTEGER
   }
 });
 
@@ -45,26 +42,31 @@ const Category = db.define('category', {
 
 const Thread = db.define('thread', {
   title: {
-    type: Sequelize.STRING
+    type: Sequelize.VARCHAR
+  },
+  content: {
+    type: Sequelize.TEXT
   }
 })
 
 // define thread model
 
 const Comment = db.define('comment', {
-    title: {
-      type: Sequelize.STRING
+    content: {
+      type: Sequelize.TEXT
     }
   })
 
 // associations
 
 
-User.hasMany(Thread, { onDelete: 'cascade' })
-User.hasMany(Comment, { onDelete: 'cascade' })
-Thread.belongsTo(Category)
-Thread.belongsTo(User)
-Comment.belongsTo(User)
+User.hasMany(Thread, { onDelete: 'cascade' });
+User.hasMany(Comment, { onDelete: 'cascade' });
+Category.hasMany(Thread);
+Thread.belongsTo(Category);
+Thread.belongsTo(User);
+Comment.belongsTo(User);
+Comment.belongsTo(Thread);
 
 
 // export models
