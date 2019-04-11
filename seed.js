@@ -83,81 +83,43 @@ const main = async () => {
     })
 
 
-<<<<<<< HEAD
-    // Create categories
-    const homework = await categories.create({
+    // Create Category
+    const homework = await Category.create({
         name: 'homework',
     });
 
-    const projects = await categories.create({
+    const projects = await Category.create({
         name: 'projects',
     });
 
-    const lesson = await categories.create({
+    const lesson = await Category.create({
         name: 'lesson',
     });
 
-    const services = await categories.create({
+    const services = await Category.create({
         name: 'services',
     });
 
-    const food = await categories.create({
+    const food = await Category.create({
         name: 'food',
     });
 
-    const student_life = await categories.create({
+    const student_life = await Category.create({
         name: 'student_life',
     });
 
-    // Create thread
-    const gameNightThread = await thread.create({
-=======
-    // Create Category
-    const homework = await Category.create({
-        name: 'homework',        
-    });
-
-    const projects = await Category.create({
-        name: 'projects',        
-    });
-
-    const lesson = await Category.create({
-        name: 'lesson',        
-    });
-
-    const services = await Category.create({
-        name: 'services',        
-    });
-
-    const food = await Category.create({
-        name: 'food',        
-    });
-
-    const student_life = await Category.create({
-        name: 'student_life',        
-    });
-
     // Create Thread
-    const gameNightThread = await Thread.create({ 
->>>>>>> 8239b5176c988459a77208e0de930a8e550e4763
+    const gameNightThread = await Thread.create({
         title: 'Game Night Needs More Games!',
         content: 'For those attending Friday, please bring a fresh new game for us to try?',
     });
 
-<<<<<<< HEAD
-    const macBookThread = await thread.create({
-=======
-    const macBookThread = await Thread.create({      
->>>>>>> 8239b5176c988459a77208e0de930a8e550e4763
+    const macBookThread = await Thread.create({
         title: 'Macbook pro for sale!',
         content: 'Hey there, Im selling my 2015 macBook pro, not a single scratch. Please contact front lines for more details.',
     });
 
-<<<<<<< HEAD
-    const reactTutoring = await thread.create({
-=======
-    const reactTutoring = await Thread.create({      
->>>>>>> 8239b5176c988459a77208e0de930a8e550e4763
+    const reactTutoring = await Thread.create({
         title: 'Anybody Need React Tutoring?',
         content: 'Im willing to barter some tutoring time for some UX and Front End work on a personal project!',
     });
