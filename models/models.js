@@ -12,18 +12,19 @@ const db = new Sequelize({
   }
 });
 
-// define building model
+// define user model
 
 const User = db.define('user', {
   name: {
-    type: Sequelize.VARCHAR
+    type: Sequelize.STRING
   },
   email: {
     type: Sequelize.VARCHAR,
     unique: true
   },
   password_digest: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    unique: true
   }
 });
 
@@ -33,9 +34,7 @@ const Category = db.define('category', {
   name: {
     type: Sequelize.VARCHAR
   },
-  content: {
-    type: Sequelize.STRING
-  },
+  
 })
 
 // define thread model
@@ -49,7 +48,7 @@ const Thread = db.define('thread', {
   }
 })
 
-// define thread model
+// define comment model
 
 const Comment = db.define('comment', {
     content: {
@@ -62,6 +61,7 @@ const Comment = db.define('comment', {
 
 User.hasMany(Thread, { onDelete: 'cascade' });
 User.hasMany(Comment, { onDelete: 'cascade' });
+Thread.hasMany(Comment);
 Category.hasMany(Thread);
 Thread.belongsTo(Category);
 Thread.belongsTo(User);
