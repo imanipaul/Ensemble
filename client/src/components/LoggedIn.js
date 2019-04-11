@@ -13,7 +13,7 @@ class LoggedIn extends React.Component {
                 <header>
                     <h1>Welcome</h1>
                     <form name='thread-post'>
-                        <input type='text' placeholder='Add title here'></input>
+                        <input className='thread-post-title' type='text' placeholder='Add title here'></input>
                         <textarea rows='4' cols='40' name='post' form='thread-post'>Enter post here...</textarea>
                         <select>
                             <option value='Homework'>Homework</option>
@@ -23,7 +23,7 @@ class LoggedIn extends React.Component {
                             <option value='Food'>Food</option>
                             <option value='Student Life'>Student Life</option>
                         </select>
-                        <button>Submit</button>
+                        <button className='thread-post-submit'>Submit</button>
                     </form>
                 </header>
                 <div className='threads'>

@@ -1,0 +1,41 @@
+.category{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.category-thread{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-threads{
+    width: 700px;
+    padding-left: 50px;
+}
+
+.category-info{
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    padding-left: 20px;
+    padding-right: 50px;
+}
+
+.category-post{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 150px;
+}
