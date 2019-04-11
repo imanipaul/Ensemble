@@ -1,4 +1,6 @@
 import React from 'react'
+import './LandingPage.css';
+
 
 class LandingPage extends React.Component {
 
@@ -16,22 +18,24 @@ class LandingPage extends React.Component {
                     <a href='#'>Cat2</a>
                     <a href='#'>Cat3</a>
                 </nav>
-                <div>
-                    <h2>Recent Posts</h2>
-                    <a href="#">Thread 1</a>
-                    <a href="#">Thread 2</a>
-                    <a href="#">Thread 3</a>
-                    <a href="#">Thread 4</a>
-                    <a href="#">Thread 5</a>
-                </div>
-                <h2>LogIn/SignUp</h2>
-                <form>
+                <div className='content'>
+                    <div className='recent-posts'>
+                        <h2>Recent Posts</h2>
+                        <a href="#">Thread 1</a>
+                        <a href="#">Thread 2</a>
+                        <a href="#">Thread 3</a>
+                        <a href="#">Thread 4</a>
+                        <a href="#">Thread 5</a>
+                    </div>
 
-                    <input type='text' placeholder='name'></input>
-                    <input type='text' placeholder='email'></input>
-                    <button>Login</button>
-                    <button>Signup</button>
-                </form>
+                    <form className='login'>
+                        <h2>LogIn/SignUp</h2>
+                        <input type='text' placeholder='name'></input>
+                        <input type='text' placeholder='email'></input>
+                        <button>Login</button>
+                        <button>Signup</button>
+                    </form>
+                </div>
 
             </div>
         )
