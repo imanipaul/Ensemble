@@ -24,7 +24,7 @@
     justify-content: space-around;
 }
 
-form {
+.thread-post {
     margin-left: 10px;
     margin-right: 10px;
     display: grid;
@@ -35,13 +35,13 @@ form {
     width: 100vw;
 }
 
-button {
+.thread-post-submit {
     width: 100px;
     justify-self: end;
     height: 20px
 }
 
-input[type='text'] {
+.thread-post-title {
     height: 30px;
 }
 
