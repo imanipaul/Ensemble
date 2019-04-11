@@ -1,7 +1,7 @@
 const { users, categories, thread, comments } = require('../models')
 
 const main = async () => {
-    
+
     // Delete database
     await users.destroy({
         where: {}
@@ -22,49 +22,49 @@ const main = async () => {
         name: 'Imani Paul',
         email: 'imani@email.com',
         role: 'student',
-        password_digest: 'password'        
+        password_digest: 'password'
     });
 
     const alane = await users.create({
         name: 'Alane Reyes',
         email: 'alane@email.com',
         role: 'student',
-        password_digest: 'password'        
+        password_digest: 'password'
     });
 
     const soren = await users.create({
         name: 'Soren Soroush',
         email: 'soren@email.com',
         role: 'student',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const solito = await users.create({
         name: 'Solito Reyes',
         email: 'solitonyc@gmail.com',
         role: 'student',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const biff = await users.create({
         name: 'Biff Gangleyman',
         email: 'biff@email.com',
         role: 'student',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const gladys = await users.create({
         name: 'Gladys Cornfoot',
         email: 'gladys@email.com',
         role: 'teacher',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const bertha = await users.create({
         name: 'Bertha Clutterbuck',
         email: 'bertha@email.com',
         role: 'teacher',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const winston = await users.create({
@@ -84,41 +84,41 @@ const main = async () => {
 
     // Create categories
     const homework = await categories.create({
-        name: 'homework',        
+        name: 'homework',
     });
 
     const projects = await categories.create({
-        name: 'projects',        
+        name: 'projects',
     });
 
     const lesson = await categories.create({
-        name: 'lesson',        
+        name: 'lesson',
     });
 
     const services = await categories.create({
-        name: 'services',        
+        name: 'services',
     });
 
     const food = await categories.create({
-        name: 'food',        
+        name: 'food',
     });
 
     const student_life = await categories.create({
-        name: 'student_life',        
+        name: 'student_life',
     });
 
     // Create thread
-    const gameNightThread = await thread.create({ 
+    const gameNightThread = await thread.create({
         title: 'Game Night Needs More Games!',
         content: 'For those attending Friday, please bring a fresh new game for us to try?',
     });
 
-    const macBookThread = await thread.create({      
+    const macBookThread = await thread.create({
         title: 'Macbook pro for sale!',
         content: 'Hey there, Im selling my 2015 macBook pro, not a single scratch. Please contact front lines for more details.',
     });
 
-    const reactTutoring = await thread.create({      
+    const reactTutoring = await thread.create({
         title: 'Anybody Need React Tutoring?',
         content: 'Im willing to barter some tutoring time for some UX and Front End work on a personal project!',
     });
@@ -140,7 +140,7 @@ const main = async () => {
 
     const gitLabs = await thread.create({
         title: 'Git Labs Homework Tip',
-        content: 'Take your time, and carefully read the instructions for each problem. If you make a mistake, Git will not inform you anything is wrong, and you will just hang without any alert. So be careful. You could try to open two browser sessions.'.,
+        content: 'Take your time, and carefully read the instructions for each problem. If you make a mistake, Git will not inform you anything is wrong, and you will just hang without any alert. So be careful. You could try to open two browser sessions.',
     })
 
 
@@ -169,7 +169,7 @@ const main = async () => {
 
     await macBookThread.setComment(macComment);
 
-   
+
 
 }
 
