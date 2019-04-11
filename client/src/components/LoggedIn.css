@@ -7,4 +7,19 @@
 }
 
 .threads{
+    background-color: lightgrey;
+    height: 500px;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-bottom: 20px;
+}
+
+.category {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }

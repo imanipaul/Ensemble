@@ -27,42 +27,42 @@ class LoggedIn extends React.Component {
                     </form>
                 </header>
                 <div className='threads'>
-                    <div className='homework'>
+                    <div className='category'>
                         <h3>Homework</h3>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                     </div>
-                    <div className='projects'>
+                    <div className='category'>
                         <h3>Projects</h3>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                     </div>
-                    <div className='lessons'>
+                    <div className='category'>
                         <h3>Lessons</h3>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                     </div>
-                    <div className='services'>
+                    <div className='category'>
                         <h3>Services</h3>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                     </div>
-                    <div className='food'>
+                    <div className='category'>
                         <h3>Food</h3>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
                     </div>
-                    <div className='student-life'>
+                    <div className='category'>
                         <h3>Student Life</h3>
                         <a href='#'>Thread title</a>
                         <a href='#'>Thread title</a>
