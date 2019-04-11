@@ -29,12 +29,20 @@ class LandingPage extends React.Component {
                     </div>
 
                     <form className='login'>
-                        <h2>LogIn/SignUp</h2>
-                        <input type='text' placeholder='name'></input>
-                        <input type='text' placeholder='email'></input>
+                        <h2>LogIn</h2>
+                        <input type='text' name='nameOrEmail' placeholder='name or email'></input>
+                        <input type='password' name='password' placeholder='password'></input>
                         <button>Login</button>
+                    </form>
+
+                    <form className='signup'>
+                        <h2>Signup</h2>
+                        <input type='text' name='name' placeholder='name'></input>
+                        <input type='email' name='email' placeholder='email'></input>
+                        <input type='password' name='password' placeholder='password'></input>
                         <button>Signup</button>
                     </form>
+
                 </div>
 
             </div>
