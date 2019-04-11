@@ -1,4 +1,5 @@
 import React from 'react'
+import './LoggedIn.css'
 
 class LoggedIn extends React.Component {
 
@@ -22,9 +23,53 @@ class LoggedIn extends React.Component {
                             <option value='Food'>Food</option>
                             <option value='Student Life'>Student Life</option>
                         </select>
+                        <button>Submit</button>
                     </form>
                 </header>
-
+                <div className='threads'>
+                    <div className='homework'>
+                        <h3>Homework</h3>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                    </div>
+                    <div className='projects'>
+                        <h3>Projects</h3>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                    </div>
+                    <div className='lessons'>
+                        <h3>Lessons</h3>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                    </div>
+                    <div className='services'>
+                        <h3>Services</h3>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                    </div>
+                    <div className='food'>
+                        <h3>Food</h3>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                    </div>
+                    <div className='student-life'>
+                        <h3>Student Life</h3>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                        <a href='#'>Thread title</a>
+                    </div>
+                </div>
             </div>
         )
     }
