@@ -19,7 +19,8 @@ const User = db.define('user', {
     type: Sequelize.VARCHAR
   },
   email: {
-    type: Sequelize.VARCHAR
+    type: Sequelize.VARCHAR,
+    unique: true
   },
   password_digest: {
     type: Sequelize.STRING
@@ -58,17 +59,13 @@ const Comment = db.define('comment', {
 
 // associations
 
-// 1:M
+
 User.hasMany(Thread, { onDelete: 'cascade' })
 User.hasMany(Comment, { onDelete: 'cascade' })
-Building.belongsTo(Architect);
+Thread.belongsTo(Category)
+Thread.belongsTo(User)
+Comment.belongsTo(User)
 
-// M:M
-Building.belongsToMany(Style, {through: 'building_style_xref',
-                                foreignKey: 'buildingId' })
-
-Style.belongsToMany(Building, {through: 'building_style_xref',
-                                foreignKey: 'styleId' })
 
 // export models
 
