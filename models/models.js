@@ -19,20 +19,19 @@ const User = db.define('user', {
     type: Sequelize.STRING
   },
   email: {
-    type: Sequelize.VARCHAR,
+    type: Sequelize.STRING,
     unique: true
   },
   password_digest: {
-    type: Sequelize.STRING,
-    unique: true
-  }
+    type: Sequelize.STRING
+}
 });
 
 // define category model
 
 const Category = db.define('category', {
   name: {
-    type: Sequelize.VARCHAR
+    type: Sequelize.STRING
   },
   
 })
@@ -41,7 +40,7 @@ const Category = db.define('category', {
 
 const Thread = db.define('thread', {
   title: {
-    type: Sequelize.VARCHAR
+    type: Sequelize.STRING
   },
   content: {
     type: Sequelize.TEXT
