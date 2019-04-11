@@ -1,4 +1,4 @@
-const { users, categories, thread, comments } = require('../models')
+const { users, categories, thread, comments } = require('./models/models')
 
 const main = async () => {
     

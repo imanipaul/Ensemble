@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "db:create": "dropdb users_db && createdb users_db && node resetDb.js && node seed.js",
+    "db:drop": "dropdb users_db",
+    "db:create": "createdb users_db && node resetDb.js && node seed.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
