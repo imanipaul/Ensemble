@@ -49,7 +49,9 @@ class App extends Component {
             path='/Category'
             render={() => <Category threads={this.state.threads} />} />
           <Route path='/Profile' render={() => <Profile />} />
-          <Route path='/Thread' render={() => <Thread />} />
+          <Route
+            path='/Thread/:id'
+            render={(props) => <Thread {...props} threads={this.state.threads} />} />
           <Route path='/CreateComment' render={() => <CreateComment />} />
         </Switch>
       </div>
