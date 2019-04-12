@@ -97,4 +97,79 @@ app.post('/comment', async (req, res) => {
   }
 })
 
+app.put('/users/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const updateUser = {
+      name: req.body.name,
+      email: req.body.email,
+      password_digest = req.body.password_digest
+    };
+    const user = await User.update(updateUser,
+      {
+        where: {
+          id: id
+        }
+      })
+    res.json(user)
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+app.put('/category/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const updateCategory = {
+      name: req.body.name,
+    };
+    const category = await Category.update(updateCategory,
+      {
+        where: {
+          id: id
+        }
+      })
+    res.json(category)
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+app.put('/thread/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const updateThread = {
+      title: req.body.title,
+      content: req.body.content,
+    };
+    const thread = await Thread.update(updateThread,
+      {
+        where: {
+          id: id
+        }
+      })
+    res.json(thread)
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+app.put('/comment/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const updateComment = {
+      content: req.body.content,
+    };
+    const comment = await Comment.update(updateComment,
+      {
+        where: {
+          id: id
+        }
+      })
+    res.json(comment)
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
 app.listen(Port, () => console.log(`Running on port ${Port}`))
