@@ -6,7 +6,6 @@ import LoggedIn from './components/LoggedIn'
 import Profile from './components/Profile'
 import Thread from './components/Thread'
 import Category from './components/Category'
-import CreateThread from './components/CreateThread.js'
 
 class App extends Component {
   render() {
@@ -18,8 +17,6 @@ class App extends Component {
           <Route path='/Category' render={() => <Category />} />
           <Route path='/Profile' render={() => <Profile />} />
           <Route path='/Thread' render={() => <Thread />} />
-          {/* <Route path='/createthread' render={() => <CreateThread />} /> */}
-
         </Switch>
       </div>
     );
