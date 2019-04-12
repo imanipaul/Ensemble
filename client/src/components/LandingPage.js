@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './LandingPage.css';
 
 
@@ -20,7 +21,7 @@ const LandingPage = props => {
                     <h2>Recent Posts</h2>
 
                     {props.threads.map(thread => (
-                        <a href='#' key={thread.id}>{thread.title}</a>
+                        <Link to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
                     ))}
 
                 </div>
