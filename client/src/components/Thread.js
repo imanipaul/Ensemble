@@ -12,7 +12,7 @@ class Thread extends React.Component {
                 </div>
            <div className='wrap-thread-boxes'>
                 <div className='threadbox'>
-                    <h2 class>Thread title. By'name' created on'date'</h2>
+                    <h2 class>Thread title.</h2><p>By'name' created on'date'</p>
                     <p>Loremn jbrebh wahrbe jrhgjk grwbjg wrgb</p>
                   </div>
 

@@ -82,6 +82,13 @@ const main = async () => {
         password_digest: 'password'
     })
 
+    const leila = await User.create({
+        name: 'Leila Ndong',
+        email: 'nana@email.com',
+        role: 'teacher',
+        password_digest: 'password'
+    })
+
 
     // Create Category
     const homework = await Category.create({
@@ -144,6 +151,16 @@ const main = async () => {
         content: 'Take your time, and carefully read the instructions for each problem. If you make a mistake, Git will not inform you anything is wrong, and you will just hang without any alert. So be careful. You could try to open two browser sessions.',
     })
 
+    const sleep = await Thread.create({
+        title: 'Sleep!!',
+        content: 'Avoid sleepless nights and take breaks!',
+    })
+
+    // const sleep = await Thread.create({
+    //     title: 'Sleep!!',
+    //     content: 'Avoid sleepless nights and take breaks!',
+    // })
+
 
 
     // Create Comment
@@ -159,6 +176,7 @@ const main = async () => {
     await fridayComment.setUser(gladys);
     await digInn.setUser(biff);
     await gitLabs.setUser(nora);
+    await sleep.setUser(leila);
 
     await macBookThread.setCategory(services);
     await gameNightThread.setCategory(student_life);
@@ -167,6 +185,7 @@ const main = async () => {
     await fridayComment.setCategory(student_life);
     await digInn.setCategory(food);
     await gitLabs.setCategory(homework);
+    await sleep.setCategory(student_life);
 
     await macComment.setThread(macBookThread);
 
