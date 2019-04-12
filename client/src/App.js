@@ -8,7 +8,7 @@ import Thread from './components/Thread'
 import Category from './components/Category'
 import CreateComment from './components/CreateComment'
 
-const url = 'http://localhost:1340/'
+const url = 'http://localhost:1340'
 
 class App extends Component {
 
@@ -18,11 +18,11 @@ class App extends Component {
       threads: []
     }
 
-    this.getThreads = this.getThreads.bind(this)
+    // this.getThreads = this.getThreads.bind(this)
   }
 
-  async getThreads() {
-    await fetch(url).then(response => {
+  getThreads() {
+    fetch(`${url}/thread`).then(response => {
       return response.json();
     }).then(data => {
       console.log(data)
