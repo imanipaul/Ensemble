@@ -172,4 +172,60 @@ app.put('/comment/:id', async (req, res) => {
   }
 })
 
+app.delete('/users/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const user = await User.destroy({
+      where: {
+        id: id
+      }
+    })
+    res.json(building);
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+app.delete('/category/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const category = await Category.destroy({
+      where: {
+        id: id
+      }
+    })
+    res.json(category);
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+app.delete('/thread/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const thread = await Thread.destroy({
+      where: {
+        id: id
+      }
+    })
+    res.json(thread);
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+app.delete('/comment/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const comment = await Comment.destroy({
+      where: {
+        id: id
+      }
+    })
+    res.json(comment);
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
 app.listen(Port, () => console.log(`Running on port ${Port}`))
