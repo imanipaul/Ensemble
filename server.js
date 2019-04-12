@@ -27,6 +27,18 @@ app.get('/users', async (req, res) => {
   }
 })
 
+app.get('/users/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const user = await User.findByPk(id, { raw: true })
+    if (!user) throw Error('User not found')
+    res.json({ user })
+  }
+  catch (e) {
+    console.log(e.message)
+  }
+})
+
 app.get('/category', async (req, res) => {
   try {
     const allCategories = await Category.findAll({ raw: true })
@@ -34,6 +46,18 @@ app.get('/category', async (req, res) => {
   } catch (error) {
     console.log(error.message)
 
+  }
+})
+
+app.get('/category/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const category = await Category.findByPk(id, { raw: true })
+    if (!category) throw Error('Category not found')
+    res.json({ category })
+  }
+  catch (e) {
+    console.log(e.message)
   }
 })
 
@@ -47,12 +71,36 @@ app.get('/thread', async (req, res) => {
   }
 })
 
+app.get('/thread/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const thread = await Thread.findByPk(id, { raw: true })
+    if (!thread) throw Error('Thread not found')
+    res.json({ thread })
+  }
+  catch (e) {
+    console.log(e.message)
+  }
+})
+
 app.get('/comment', async (req, res) => {
   try {
     const allComments = await Comment.findAll({ raw: true })
     res.json(allComments)
   } catch (error) {
     console.log(error.message)
+  }
+})
+
+app.get('/comment/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const comment = await Comment.findByPk(id, { raw: true })
+    if (!comment) throw Error('User not found')
+    res.json({ comment })
+  }
+  catch (e) {
+    console.log(e.message)
   }
 })
 
@@ -103,7 +151,7 @@ app.put('/users/:id', async (req, res) => {
     const updateUser = {
       name: req.body.name,
       email: req.body.email,
-      password_digest = req.body.password_digest
+      password_digest: req.body.password_digest
     };
     const user = await User.update(updateUser,
       {
@@ -159,6 +207,8 @@ app.put('/comment/:id', async (req, res) => {
     const id = req.params.id
     const updateComment = {
       content: req.body.content,
+      userId: req.body.userId,
+      threadId: req.body.threadId
     };
     const comment = await Comment.update(updateComment,
       {
