@@ -53,7 +53,47 @@ app.get('/comment', async (req, res) => {
     res.json(allComments)
   } catch (error) {
     console.log(error.message)
+  }
+})
 
+app.post('/users', async (req, res) => {
+  console.log(req.body)
+  try {
+    const user = User.create(req.body)
+    res.json(user)
+  } catch (error) {
+    console.log(error.message)
+
+  }
+})
+
+app.post('/category', async (req, res) => {
+  console.log(req.body)
+  try {
+    const category = Category.create(req.body)
+    res.json(category)
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+app.post('/thread', async (req, res) => {
+  console.log(req.body)
+  try {
+    const thread = Thread.create(req.body)
+    res.json(thread)
+  } catch (error) {
+    console.log(error.message)
+  }
+})
+
+app.post('/comment', async (req, res) => {
+  console.log(req.body)
+  try {
+    const comment = Comment.create(req.body)
+    res.json(comment)
+  } catch (error) {
+    console.log(error.message)
   }
 })
 
