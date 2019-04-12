@@ -18,7 +18,7 @@ class App extends Component {
           <Route path='/Category' render={() => <Category />} />
           <Route path='/Profile' render={() => <Profile />} />
           <Route path='/Thread' render={() => <Thread />} />
-          <Route path='/createthread' render={() => <CreateThread />} />
+          {/* <Route path='/createthread' render={() => <CreateThread />} /> */}
 
         </Switch>
       </div>
