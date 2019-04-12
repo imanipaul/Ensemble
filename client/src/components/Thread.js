@@ -24,9 +24,9 @@ class Thread extends React.Component {
         })
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         console.log('params:', this.props.match.params)
-        await this.getThread()
+        this.getThread()
     }
 
     render() {
