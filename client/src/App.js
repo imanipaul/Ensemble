@@ -26,6 +26,9 @@ class App extends Component {
       return response.json();
     }).then(data => {
       console.log(data)
+      this.setState({
+        threads: data
+      })
     })
   }
 
@@ -38,7 +41,10 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' render={() => <LandingPage />} />
+          <Route
+            exact path='/'
+            render={() => <LandingPage threads={this.state.threads} />}
+          />
           <Route path='/Home' render={() => <LoggedIn />} />
           <Route path='/Category' render={() => <Category />} />
           <Route path='/Profile' render={() => <Profile />} />
