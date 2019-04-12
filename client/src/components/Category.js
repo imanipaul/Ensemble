@@ -3,12 +3,13 @@ import CreateThread from './CreateThread'
 import './Category.css';
 
 
+const url = 'http://localhost:1340'
+
+
 class Category extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            category: 'homework'
-        }
+
     }
 
 
@@ -18,6 +19,9 @@ class Category extends React.Component {
                 <h1>Category Name</h1>
                 <div className='category-info'>
                     <div className='category-threads'>
+
+
+
                         <div className='category-thread'>
                             <h3>Thread Name</h3>
                             <p>by: name</p>
@@ -54,6 +58,9 @@ class Category extends React.Component {
                             <p>created on: time</p>
                             <p>Number of Comments</p>
                         </div>
+
+
+
                     </div>
 
                     <CreateThread />

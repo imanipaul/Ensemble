@@ -76,7 +76,8 @@ app.post('/signup', async (req, res) => {
     user,
     message: 'User successfully created'
   })
-  
+})
+
 // ===== Regular Endpoints =====
 
 app.get('/users', async (req, res) => {
