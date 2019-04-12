@@ -39,11 +39,11 @@ class Thread extends React.Component {
                 </div>
                 <div className='wrap-thread-boxes'>
                     <div className='threadbox'>
-                        <h2 className='title'>{this.state.thread.title}</h2><p>By'name' created on'date'</p>
-                        <p>Loremn jbrebh wahrbe jrhgjk grwbjg wrgb</p>
+                        <h2 className='title'>{this.state.thread.title}</h2>
+                        <p>By'name' </p>
+                        <p>Created on {this.state.thread.createdAt}</p>
+                        <p>{this.state.thread.content}</p>
                     </div>
-
-                    {/* <div>{this.getThread}</div> */}
 
                     <div className='threadpost'>
 
