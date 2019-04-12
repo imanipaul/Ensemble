@@ -1,6 +1,6 @@
 import React from 'react';
 import './Thread.css';
-import CreateComment from './CreateComment';
+import Comment from './Comment';
 
 class Thread extends React.Component {
     render() {
@@ -25,8 +25,9 @@ class Thread extends React.Component {
                         <button>Post</button>
 
                         </form>
-              
-                    <CreateComment />
+                    <Comment />
+                    
+
 
                 </div>
 
