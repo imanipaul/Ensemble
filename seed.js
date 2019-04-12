@@ -176,8 +176,26 @@ const main = async () => {
 
     // Create Comment
     const macComment = await Comment.create({
-        content: 'TEST COMMENT',
+        content: 'Great, I love this platform I really need a computer!',
     });
+
+    const gameComment = await Comment.create({
+        content: 'Yes! I will bring my playstation!'
+    })
+
+    const tutorComment = await Comment.create({
+        content: 'Hello, Im in!!'
+    })
+
+    const apiComment = await Comment.create({
+        content: 'Thank you, I am having a hard time finding an API for my project2, I could really use your help!!'
+    })
+
+    const replyFriday = await Comment.create({
+        content: 'No matter how tired I am, I am staying for game night! I have to beat Leo at smash bros again!!'
+    })
+
+       
 
     // Associations
     await macBookThread.setUser(alane);
@@ -201,6 +219,12 @@ const main = async () => {
     await lunch.setCategory(food);
 
     await macComment.setThread(macBookThread);
+    await gameComment.setThread(gameNightThread);
+    await tutorComment.setThread(reactTutoring);
+    await apiComment.setThread(marvelApi);
+    await replyFriday.setThread(fridayComment);
+
+
 
 
 
