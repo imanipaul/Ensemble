@@ -1,11 +1,16 @@
 import React from 'react'
+import CreateThread from './CreateThread'
 import './Category.css';
 
 
 class Category extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            category: 'homework'
+        }
     }
+
 
     render() {
         return (
@@ -50,12 +55,8 @@ class Category extends React.Component {
                             <p>Number of Comments</p>
                         </div>
                     </div>
-                    <form name='category-post' className='category-post'>
-                        <h3 className='create-new'>Create New Post:</h3>
-                        <input type='text' placeholder='Add title here'></input>
-                        <textarea rows='4' cols='40' name='post' form='category-post'>Enter post here...</textarea>
-                        <button>Submit</button>
-                    </form>
+
+                    <CreateThread />
                 </div>
 
             </div>

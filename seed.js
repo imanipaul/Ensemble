@@ -82,6 +82,19 @@ const main = async () => {
         password_digest: 'password'
     })
 
+    const leila = await User.create({
+        name: 'Leila Ndong',
+        email: 'nana@email.com',
+        role: 'teacher',
+        password_digest: 'password'
+    })
+
+    const aminata = await User.create({
+        name: 'Aminata Ndiaye',
+        email: 'ndiaye@email.com',
+        role: 'teacher',
+        password_digest: 'password'
+    })
 
     // Create Category
     const homework = await Category.create({
@@ -144,12 +157,51 @@ const main = async () => {
         content: 'Take your time, and carefully read the instructions for each problem. If you make a mistake, Git will not inform you anything is wrong, and you will just hang without any alert. So be careful. You could try to open two browser sessions.',
     })
 
+    const sleep = await Thread.create({
+        title: 'Sleep!!',
+        content: 'Avoid sleepless nights and take breaks!',
+    })
+
+    const lunch = await Thread.create({
+        title: 'Bring lunch from home',
+        content: 'Restaurants in the area are great but tend to be expensive, bring lunch from Home!',
+    })
+
+    // const sleep = await Thread.create({
+    //     title: 'Sleep!!',
+    //     content: 'Avoid sleepless nights and take breaks!',
+    // })
+
 
 
     // Create Comment
     const macComment = await Comment.create({
-        content: 'TEST COMMENT',
+        content: 'Great, I love this platform I really need a computer!',
     });
+
+    const gameComment = await Comment.create({
+        content: 'Yes! I will bring my playstation!'
+    })
+
+    const tutorComment = await Comment.create({
+        content: 'Hello, Im in!!'
+    })
+
+    const apiComment = await Comment.create({
+        content: 'Thank you, I am having a hard time finding an API for my project2, I could really use your help!!'
+    })
+
+    const replyFriday = await Comment.create({
+        content: 'No matter how tired I am, I am staying for game night! I have to beat Leo at smash bros again!!'
+    })
+
+    const replyFridayb = await Comment.create({
+        content: 'You and me both!!'
+    })
+
+
+
+       
 
     // Associations
     await macBookThread.setUser(alane);
@@ -159,6 +211,8 @@ const main = async () => {
     await fridayComment.setUser(gladys);
     await digInn.setUser(biff);
     await gitLabs.setUser(nora);
+    await sleep.setUser(leila);
+    await lunch.setUser(Aminata);
 
     await macBookThread.setCategory(services);
     await gameNightThread.setCategory(student_life);
@@ -167,8 +221,26 @@ const main = async () => {
     await fridayComment.setCategory(student_life);
     await digInn.setCategory(food);
     await gitLabs.setCategory(homework);
+    await sleep.setCategory(student_life);
+    await lunch.setCategory(food);
 
     await macComment.setThread(macBookThread);
+    await gameComment.setThread(gameNightThread);
+    await tutorComment.setThread(reactTutoring);
+    await apiComment.setThread(marvelApi);
+    await replyFriday.setThread(fridayComment);
+    await replyFridayb.setThread(fridayComment);
+
+
+    await macComment.setUser(aminata);
+    await gameComment.setUser(leila);
+    await tutorComment.setUser(winston);
+    await apiComment.setUser(soren);
+    await replyFriday.setUser(nora);
+    await replyFridayb.setUser(bertha);
+
+
+
 
 
 

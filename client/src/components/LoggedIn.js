@@ -1,4 +1,5 @@
 import React from 'react'
+import CreateThread from './CreateThread'
 import './LoggedIn.css'
 
 class LoggedIn extends React.Component {
@@ -12,19 +13,7 @@ class LoggedIn extends React.Component {
             <div className='home-page'>
                 <header>
                     <h1>Welcome</h1>
-                    <form name='thread-post'>
-                        <input className='thread-post-title' type='text' placeholder='Add title here'></input>
-                        <textarea rows='4' cols='40' name='post' form='thread-post'>Enter post here...</textarea>
-                        <select>
-                            <option value='Homework'>Homework</option>
-                            <option value='Projects'>Projects</option>
-                            <option value='Lessons'>Lessons</option>
-                            <option value='Services'>Services</option>
-                            <option value='Food'>Food</option>
-                            <option value='Student Life'>Student Life</option>
-                        </select>
-                        <button className='thread-post-submit'>Submit</button>
-                    </form>
+                    <CreateThread />
                 </header>
                 <div className='threads'>
                     <div className='category'>
