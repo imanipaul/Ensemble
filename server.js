@@ -1,14 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+
 const { User, Category, Thread, Comment } = require('./models/models.js')
 const { Op } = require('sequelize')
 
 const app = express()
-
-const { Op } = require('sequelize')
-
-const { User } = require('./models/models')
 
 const { hashPassword, checkPassword, genToken } = require('./auth.js')
 
