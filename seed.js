@@ -229,6 +229,8 @@ const main = async () => {
     await tutorComment.setThread(reactTutoring);
     await apiComment.setThread(marvelApi);
     await replyFriday.setThread(fridayComment);
+    await replyFridayb.setThread(fridayComment);
+
 
     await macComment.setUser(aminata);
     await gameComment.setUser(leila);
