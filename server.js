@@ -27,4 +27,34 @@ app.get('/users', async (req, res) => {
   }
 })
 
+app.get('/category', async (req, res) => {
+  try {
+    const allCategories = await Category.findAll({ raw: true })
+    res.json({ allCategories })
+  } catch (error) {
+    console.log(error.message)
+
+  }
+})
+
+app.get('/thread', async (req, res) => {
+  try {
+    const allThreads = await Thread.findAll({ raw: true })
+    res.json(allThreads)
+  } catch (error) {
+    console.log(error.message)
+
+  }
+})
+
+app.get('/comment', async (req, res) => {
+  try {
+    const allComments = await Comment.findAll({ raw: true })
+    res.json(allComments)
+  } catch (error) {
+    console.log(error.message)
+
+  }
+})
+
 app.listen(Port, () => console.log(`Running on port ${Port}`))
