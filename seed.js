@@ -2,7 +2,7 @@ const { User, Category, Thread, Comment } = require('./models/models')
 
 
 const main = async () => {
-    
+
     // Delete database
     await User.destroy({
         where: {}
@@ -23,49 +23,49 @@ const main = async () => {
         name: 'Imani Paul',
         email: 'imani@email.com',
         role: 'student',
-        password_digest: 'password'        
+        password_digest: 'password'
     });
 
     const alane = await User.create({
         name: 'Alane Reyes',
         email: 'alane@email.com',
         role: 'student',
-        password_digest: 'password'        
+        password_digest: 'password'
     });
 
     const soren = await User.create({
         name: 'Soren Soroush',
         email: 'soren@email.com',
         role: 'student',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const solito = await User.create({
         name: 'Solito Reyes',
         email: 'solitonyc@gmail.com',
         role: 'student',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const biff = await User.create({
         name: 'Biff Gangleyman',
         email: 'biff@email.com',
         role: 'student',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const gladys = await User.create({
         name: 'Gladys Cornfoot',
         email: 'gladys@email.com',
         role: 'teacher',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const bertha = await User.create({
         name: 'Bertha Clutterbuck',
         email: 'bertha@email.com',
         role: 'teacher',
-        password_digest: 'password'       
+        password_digest: 'password'
     });
 
     const winston = await User.create({
@@ -85,41 +85,41 @@ const main = async () => {
 
     // Create Category
     const homework = await Category.create({
-        name: 'homework',        
+        name: 'homework',
     });
 
     const projects = await Category.create({
-        name: 'projects',        
+        name: 'projects',
     });
 
     const lesson = await Category.create({
-        name: 'lesson',        
+        name: 'lesson',
     });
 
     const services = await Category.create({
-        name: 'services',        
+        name: 'services',
     });
 
     const food = await Category.create({
-        name: 'food',        
+        name: 'food',
     });
 
     const student_life = await Category.create({
-        name: 'student_life',        
+        name: 'student_life',
     });
 
     // Create Thread
-    const gameNightThread = await Thread.create({ 
+    const gameNightThread = await Thread.create({
         title: 'Game Night Needs More Games!',
         content: 'For those attending Friday, please bring a fresh new game for us to try?',
     });
 
-    const macBookThread = await Thread.create({      
+    const macBookThread = await Thread.create({
         title: 'Macbook pro for sale!',
         content: 'Hey there, Im selling my 2015 macBook pro, not a single scratch. Please contact front lines for more details.',
     });
 
-    const reactTutoring = await Thread.create({      
+    const reactTutoring = await Thread.create({
         title: 'Anybody Need React Tutoring?',
         content: 'Im willing to barter some tutoring time for some UX and Front End work on a personal project!',
     });
@@ -170,7 +170,7 @@ const main = async () => {
 
     await macComment.setThread(macBookThread);
 
-   
+
 
 }
 

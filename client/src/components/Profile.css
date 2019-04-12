@@ -1,0 +1,60 @@
+.profile{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.profile-thread{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-threads{
+    width: 700px;
+    padding-left: 50px;
+}
+
+.profile-info{
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    padding-left: 20px;
+    padding-right: 50px;
+}
+
+.profile-post{
+    /* height: 400px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* padding-right: 150px; */
+    border: 1px solid blue;
+    width: 300px;
+    background-color: rgb(211, 191, 81, 0.5);
+}
+
+.side-boxes{
+    padding-right: 50px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.my-profile{
+    width: 300px;
+    border: 1px solid black;
+    background-color: rgb(211, 191, 81, 0.5);
+}
