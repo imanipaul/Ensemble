@@ -61,6 +61,24 @@ app.get('/category/:id', async (req, res) => {
   }
 })
 
+app.get('/category/name/:name', async (req, res) => {
+  try {
+    const name = req.params.name
+    console.log(name)
+    const category = await Category.findAll({
+      where: {
+        name
+
+      }
+    })
+    if (!category) throw Error('Category not found')
+    res.json({ category })
+  }
+  catch (e) {
+    console.log(e.message)
+  }
+})
+
 app.get('/thread', async (req, res) => {
   try {
     const allThreads = await Thread.findAll({ raw: true })

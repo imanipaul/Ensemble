@@ -7,7 +7,8 @@ class CreateThread extends React.Component {
         super(props)
         this.state = {
             title: '',
-            content: ''
+            content: '',
+            category: ''
         }
     }
 
@@ -54,3 +55,5 @@ class CreateThread extends React.Component {
 
 
 }
+
+export default CreateThread
