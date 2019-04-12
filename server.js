@@ -6,9 +6,7 @@ const { Op } = require('sequelize')
 
 const app = express()
 
-const { Op } = require('sequelize')
-
-const { User } = require('./models/models')
+// const { User } = require('./models/models')
 
 const { hashPassword, checkPassword, genToken } = require('./auth.js')
 
@@ -79,7 +77,8 @@ app.post('/signup', async (req, res) => {
     user,
     message: 'User successfully created'
   })
-  
+})
+
 // ===== Regular Endpoints =====
 
 app.get('/users', async (req, res) => {
