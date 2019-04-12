@@ -89,6 +89,12 @@ const main = async () => {
         password_digest: 'password'
     })
 
+    const aminata = await User.create({
+        name: 'Aminata Ndiaye',
+        email: 'ndiaye@email.com',
+        role: 'teacher',
+        password_digest: 'password'
+    })
 
     // Create Category
     const homework = await Category.create({
@@ -156,6 +162,11 @@ const main = async () => {
         content: 'Avoid sleepless nights and take breaks!',
     })
 
+    const lunch = await Thread.create({
+        title: 'Bring lunch from home',
+        content: 'Restaurants in the area are great but tend to be expensive, bring lunch from Home!',
+    })
+
     // const sleep = await Thread.create({
     //     title: 'Sleep!!',
     //     content: 'Avoid sleepless nights and take breaks!',
@@ -177,6 +188,7 @@ const main = async () => {
     await digInn.setUser(biff);
     await gitLabs.setUser(nora);
     await sleep.setUser(leila);
+    await lunch.setUser(Aminata);
 
     await macBookThread.setCategory(services);
     await gameNightThread.setCategory(student_life);
@@ -186,6 +198,7 @@ const main = async () => {
     await digInn.setCategory(food);
     await gitLabs.setCategory(homework);
     await sleep.setCategory(student_life);
+    await lunch.setCategory(food);
 
     await macComment.setThread(macBookThread);
 
