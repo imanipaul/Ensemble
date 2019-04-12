@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './LandingPage.css';
 
 const URL = 'http://localhost:1340'
@@ -81,7 +82,7 @@ class LandingPage extends React.Component {
                     <h2>Recent Posts</h2>
 
                     {props.threads.map(thread => (
-                        <a href='#' key={thread.id}>{thread.title}</a>
+                        <Link to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
                     ))}
                 </div>
 
