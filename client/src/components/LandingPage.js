@@ -16,9 +16,6 @@ const LandingPage = props => {
             </nav>
 
             <div className='content'>
-
-
-
                 <div className='recent-posts'>
                     <h2>Recent Posts</h2>
 
@@ -27,9 +24,6 @@ const LandingPage = props => {
                     ))}
 
                 </div>
-
-
-
                 <form className='login'>
                     <h2>LogIn</h2>
                     <input type='text' name='nameOrEmail' placeholder='name or email'></input>

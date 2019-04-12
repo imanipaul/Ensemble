@@ -18,11 +18,10 @@ class App extends Component {
       threads: []
     }
 
-    // this.getThreads = this.getThreads.bind(this)
   }
 
-  getThreads() {
-    fetch(`${url}/thread`).then(response => {
+  async getThreads() {
+    await fetch(`${url}/thread`).then(response => {
       return response.json();
     }).then(data => {
       console.log(data)
@@ -46,7 +45,9 @@ class App extends Component {
             render={() => <LandingPage threads={this.state.threads} />}
           />
           <Route path='/Home' render={() => <LoggedIn />} />
-          <Route path='/Category' render={() => <Category />} />
+          <Route
+            path='/Category'
+            render={() => <Category threads={this.state.threads} />} />
           <Route path='/Profile' render={() => <Profile />} />
           <Route path='/Thread' render={() => <Thread />} />
           <Route path='/CreateComment' render={() => <CreateComment />} />

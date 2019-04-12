@@ -6,7 +6,11 @@ import './Category.css';
 class Category extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            category: 'homework'
+        }
     }
+
 
     render() {
         return (
