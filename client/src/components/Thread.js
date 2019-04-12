@@ -19,14 +19,14 @@ class Thread extends React.Component {
         }).then(data => {
             console.log(data)
             this.setState({
-                thread: data
+                thread: data.thread
             })
         })
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         console.log('params:', this.props.match.params)
-        this.getThread()
+        await this.getThread()
     }
 
     render() {
@@ -39,7 +39,7 @@ class Thread extends React.Component {
                 </div>
                 <div className='wrap-thread-boxes'>
                     <div className='threadbox'>
-                        <h2 className='title'>Thread title.</h2><p>By'name' created on'date'</p>
+                        <h2 className='title'>{this.state.thread.title}</h2><p>By'name' created on'date'</p>
                         <p>Loremn jbrebh wahrbe jrhgjk grwbjg wrgb</p>
                     </div>
 
