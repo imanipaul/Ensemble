@@ -195,6 +195,12 @@ const main = async () => {
         content: 'No matter how tired I am, I am staying for game night! I have to beat Leo at smash bros again!!'
     })
 
+    const replyFridayb = await Comment.create({
+        content: 'You and me both!!'
+    })
+
+
+
        
 
     // Associations
@@ -223,6 +229,14 @@ const main = async () => {
     await tutorComment.setThread(reactTutoring);
     await apiComment.setThread(marvelApi);
     await replyFriday.setThread(fridayComment);
+
+    await macComment.setUser(aminata);
+    await gameComment.setUser(leila);
+    await tutorComment.setUser(winston);
+    await apiComment.setUser(soren);
+    await replyFriday.setUser(nora);
+    await replyFridayb.setUser(bertha);
+
 
 
 

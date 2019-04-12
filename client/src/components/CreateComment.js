@@ -51,8 +51,8 @@ export default class CreateComment extends Component {
                 <h2 className='title'>Comment</h2>
                 <h3>Respond to this post</h3>
                 <form onSubmit={this.onFormSubmit} id="thread-form">
-                    <input type='text' className='commentbox' value={this.state.content} onChange={this.onFormChange} name='content' placeholder='Enter comments here'></input>
-                    <button>Post</button>
+                    <textarea rows='4' cols='40' className='commentbox' value={this.state.content} onChange={this.onFormChange} name='content' placeholder='Enter comments here'></textarea>
+                    <button>Comment</button>
 
                 </form>
 

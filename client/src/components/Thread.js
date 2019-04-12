@@ -1,5 +1,6 @@
-import React from 'react'
-import './Thread.css'
+import React from 'react';
+import './Thread.css';
+import CreateComment from './CreateComment';
 
 class Thread extends React.Component {
     render() {
@@ -20,12 +21,13 @@ class Thread extends React.Component {
                       <h3>Respond to this post</h3>
                       <form id="thread-form">
                         <input type='text' placeholder='Add subject here'></input>
-                        <input type='text'className='commentbox' placeholder='Enter comments here'></input>
+                        <textarea rows='4' cols='40'className='commentbox' placeholder='Enter comments here'></textarea>
                         <button>Post</button>
 
                         </form>
               
-                    
+                    <CreateComment />
+
                 </div>
 
 </div>
