@@ -1,6 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const { User, Category, Thread, Comment } = require('./models/models')
+const { Op } = require('sequelize')
+
 const app = express()
 
 app.use(bodyParser.json())
@@ -8,7 +11,7 @@ app.use(cors())
 
 const Port = process.env.PORT || 1340
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
   res.send('This is the home page of the server')
 })
 
