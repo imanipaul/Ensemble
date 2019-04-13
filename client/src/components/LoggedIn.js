@@ -1,5 +1,6 @@
 import React from 'react'
 import CreateThread from './CreateThread'
+import { Link } from 'react-router-dom'
 import './LoggedIn.css'
 
 class LoggedIn extends React.Component {
@@ -8,6 +9,21 @@ class LoggedIn extends React.Component {
         super(props)
     }
 
+    getCategoryThreads(id) {
+
+        const filteredThreads = this.props.threads.filter(thread => {
+            return thread.categoryId === id
+        })
+        return filteredThreads
+    }
+
+    renderThreads(id) {
+        return this.getCategoryThreads(id).map(thread => {
+            return <Link to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
+        })
+    }
+
+
     render() {
         return (
             <div className='home-page'>
@@ -15,48 +31,31 @@ class LoggedIn extends React.Component {
                     <h1>Welcome UserName</h1>
                     <CreateThread />
                 </header>
+
                 <div className='threads'>
                     <div className='category'>
                         <h3>Homework</h3>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
+                        {this.renderThreads(1)}
                     </div>
                     <div className='category'>
                         <h3>Projects</h3>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
+                        {this.renderThreads(2)}
                     </div>
                     <div className='category'>
                         <h3>Lessons</h3>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
+                        {this.renderThreads(3)}
                     </div>
                     <div className='category'>
                         <h3>Services</h3>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
+                        {this.renderThreads(4)}
                     </div>
                     <div className='category'>
                         <h3>Food</h3>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
+                        {this.renderThreads(5)}
                     </div>
                     <div className='category'>
                         <h3>Student Life</h3>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
-                        <a href='#'>Thread title</a>
+                        {this.renderThreads(6)}
                     </div>
                 </div>
             </div>
