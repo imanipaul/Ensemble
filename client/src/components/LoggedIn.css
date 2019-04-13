@@ -10,14 +10,14 @@
     background-color: lightgrey;
     height: 500px;
     width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.category {
-    
+.category-allthreads {
+    background-color: lightgrey;
     display: flex;
     flex-direction: column;
     align-items: center;

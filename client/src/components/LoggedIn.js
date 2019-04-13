@@ -33,27 +33,27 @@ class LoggedIn extends React.Component {
                 </header>
 
                 <div className='threads'>
-                    <div className='category'>
+                    <div className='category-allthreads'>
                         <h3>Homework</h3>
                         {this.renderThreads(1)}
                     </div>
-                    <div className='category'>
+                    <div className='category-allthreads'>
                         <h3>Projects</h3>
                         {this.renderThreads(2)}
                     </div>
-                    <div className='category'>
+                    <div className='category-allthreads'>
                         <h3>Lessons</h3>
                         {this.renderThreads(3)}
                     </div>
-                    <div className='category'>
+                    <div className='category-allthreads'>
                         <h3>Services</h3>
                         {this.renderThreads(4)}
                     </div>
-                    <div className='category'>
+                    <div className='category-allthreads'>
                         <h3>Food</h3>
                         {this.renderThreads(5)}
                     </div>
-                    <div className='category'>
+                    <div className='category-allthreads'>
                         <h3>Student Life</h3>
                         {this.renderThreads(6)}
                     </div>
