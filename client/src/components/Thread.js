@@ -8,7 +8,7 @@ class Thread extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            threadId: '',
+            threadId: this.props.match.params.id,
             thread: {}
         }
     }
@@ -47,7 +47,7 @@ class Thread extends React.Component {
 
                     <div className='threadpost'>
 
-                        <CreateComment />
+                        <CreateComment threadId={this.state.threadId} />
 
                     </div>
 

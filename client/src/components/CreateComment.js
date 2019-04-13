@@ -20,7 +20,8 @@ export default class CreateComment extends Component {
     onFormSubmit = event => {
         event.preventDefault();
         let data = {
-            content: this.state.content
+            content: this.state.content,
+            threadId: this.props.threadId
 
         }
         fetch(url, {
