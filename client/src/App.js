@@ -16,7 +16,8 @@ class App extends Component {
     super(props);
     this.state = {
       threads: [],
-      categories: []
+      categories: [],
+      comments: []
     }
 
   }
@@ -44,9 +45,21 @@ class App extends Component {
     })
   }
 
+  getComments() {
+    fetch(`${url}/comment`).then(response => {
+      return response.json()
+    }).then(data => {
+      console.log('comments', data)
+      this.setState({
+        comments: data
+      })
+    })
+  }
+
   componentDidMount() {
     this.getThreads()
     this.getCategories()
+    this.getComments()
   }
 
 
@@ -59,7 +72,9 @@ class App extends Component {
             render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} />}
           />
 
-          <Route path='/Home' render={() => <LoggedIn />} />
+          <Route
+            path='/Home'
+            render={() => <LoggedIn threads={this.state.threads} categories={this.state.categories} />} />
 
           <Route
             path='/Category/:id'
@@ -69,7 +84,7 @@ class App extends Component {
 
           <Route
             path='/Thread/:id'
-            render={(props) => <Thread {...props} threads={this.state.threads} />} />
+            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} />} />
 
           <Route path='/CreateComment' render={() => <CreateComment />} />
         </Switch>

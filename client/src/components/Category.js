@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 import './Category.css';
 
 
-// const url = 'http://localhost:3001'
-
 
 class Category extends React.Component {
     constructor(props) {
@@ -37,10 +35,6 @@ class Category extends React.Component {
         this.setState({
             currentCategory: currentCategory[0]
         })
-        // console.log('currentcategory', currentCategory)
-        // console.log('first', currentCategory[0])
-        // console.log('name', currentCategory[0].name)
-        // console.log(this.state.currentCategory)
     }
 
     componentDidMount() {
@@ -56,6 +50,7 @@ class Category extends React.Component {
                 {this.state.currentCategory &&
 
                     <h1>{this.state.currentCategory.name}</h1>}
+
                 <div className='category-info'>
                     <div className='category-threads'>
 
@@ -74,7 +69,7 @@ class Category extends React.Component {
 
 
                     </div>
-
+                    <h3>Create a new thread</h3>
                     <CreateThread />
                 </div>
 
