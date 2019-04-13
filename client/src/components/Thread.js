@@ -39,17 +39,6 @@ class Thread extends React.Component {
     }
 
 
-    getCategoryThreads() {
-        let currentId = parseInt(this.state.id)
-        const filteredThreads = this.props.threads.filter(thread => {
-            return thread.categoryId === currentId
-        })
-        this.setState({
-            filteredThreads: filteredThreads
-        })
-        return filteredThreads
-    }
-
     componentDidMount() {
         this.getThread()
         this.getComments()
@@ -77,7 +66,11 @@ class Thread extends React.Component {
                     </div>
 
                     <div>
-                        Render Comments
+                        {this.state.threadComments &&
+                            this.state.threadComments.map(comment => (
+                                <p>{comment.content}</p>
+                            ))
+                        }
                     </div>
 
                 </div>
