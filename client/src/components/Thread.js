@@ -9,7 +9,8 @@ class Thread extends React.Component {
         super(props)
         this.state = {
             threadId: this.props.match.params.id,
-            thread: {}
+            thread: {},
+            threadComments: []
         }
     }
 
@@ -24,10 +25,36 @@ class Thread extends React.Component {
         })
     }
 
-    componentDidMount() {
-        console.log('params:', this.props.match.params)
-        this.getThread()
+    getComments() {
+        console.log('comments prop:', this.props.comments)
+        let currentId = parseInt(this.state.threadId)
+        const threadComments = this.props.comments.filter(comment => {
+            return comment.threadId === currentId
+        })
+        console.log('threadComments:', threadComments)
+        this.setState({
+            threadComments: threadComments
+        })
+        return threadComments
     }
+
+
+    getCategoryThreads() {
+        let currentId = parseInt(this.state.id)
+        const filteredThreads = this.props.threads.filter(thread => {
+            return thread.categoryId === currentId
+        })
+        this.setState({
+            filteredThreads: filteredThreads
+        })
+        return filteredThreads
+    }
+
+    componentDidMount() {
+        this.getThread()
+        this.getComments()
+    }
+
 
     render() {
         return (
@@ -46,9 +73,11 @@ class Thread extends React.Component {
                     </div>
 
                     <div className='threadpost'>
-
                         <CreateComment threadId={this.state.threadId} />
+                    </div>
 
+                    <div>
+                        Render Comments
                     </div>
 
                 </div>
