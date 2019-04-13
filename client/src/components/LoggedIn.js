@@ -12,7 +12,7 @@ class LoggedIn extends React.Component {
         return (
             <div className='home-page'>
                 <header>
-                    <h1>Welcome</h1>
+                    <h1>Welcome UserName</h1>
                     <CreateThread />
                 </header>
                 <div className='threads'>
