@@ -13,7 +13,7 @@ const { hashPassword, checkPassword, genToken } = require('./auth.js')
 app.use(bodyParser.json())
 app.use(cors())
 
-const Port = process.env.PORT || 1340
+const Port = process.env.PORT || 3001
 
 app.get('/', (req, res) => {
   res.send('This is the home page of the server')
@@ -106,10 +106,13 @@ app.get('/users/:id', async (req, res) => {
 
 app.get('/category', async (req, res) => {
   try {
-    const allCategories = await Category.findAll({ raw: true })
+    const allCategories = await Category.findAll()
     res.json({ allCategories })
   } catch (error) {
-    console.log(error.message)
+    res.statusMessage(500).json({
+      message: e.message
+    })
+    console.log(e.message)
 
   }
 })
@@ -117,7 +120,7 @@ app.get('/category', async (req, res) => {
 app.get('/category/:id', async (req, res) => {
   try {
     const id = req.params.id
-    const category = await Category.findByPk(id, { raw: true })
+    const category = await Category.findByPk(id)
     if (!category) throw Error('Category not found')
     res.json({ category })
   }
@@ -146,11 +149,13 @@ app.get('/category/name/:name', async (req, res) => {
 
 app.get('/thread', async (req, res) => {
   try {
-    const allThreads = await Thread.findAll({ raw: true })
+    const allThreads = await Thread.findAll()
     res.json(allThreads)
   } catch (error) {
-    console.log(error.message)
-
+    res.statusMessage(500).json({
+      message: e.message
+    })
+    console.log(e.message)
   }
 })
 

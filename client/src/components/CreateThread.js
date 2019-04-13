@@ -1,6 +1,6 @@
 import React from 'react'
 
-const url = 'http://localhost:1340'
+const url = 'http://localhost:3001'
 
 class CreateThread extends React.Component {
     constructor(props) {
