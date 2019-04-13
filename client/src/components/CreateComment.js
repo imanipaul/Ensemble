@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-const url = 'http://localhost:1340/comment';
+const url = 'http://localhost:3001/comment';
 
 export default class CreateComment extends Component {
     constructor(props) {

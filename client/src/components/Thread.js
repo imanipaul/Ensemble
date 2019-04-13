@@ -2,7 +2,7 @@ import React from 'react';
 import './Thread.css';
 import CreateComment from './CreateComment';
 
-const url = 'http://localhost:1340'
+const url = 'http://localhost:3001'
 
 class Thread extends React.Component {
     constructor(props) {

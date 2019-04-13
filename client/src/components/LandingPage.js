@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './LandingPage.css';
 
-const URL = 'http://localhost:1340'
+const URL = 'http://localhost:3001'
 
 class LandingPage extends React.Component {
 
@@ -10,20 +10,9 @@ class LandingPage extends React.Component {
         super(props)
         this.state = {
             isLoggedIn: false,
-            // categories: []
         }
     }
 
-    // async getCategories() {
-    //     await fetch(`${URL}/category`).then(response => {
-    //         return response.json();
-    //     }).then(data => {
-    //         console.log(data)
-    //         this.setState({
-    //             categories: data.allCategories
-    //         })
-    //     })
-    // }
 
 
     handleLogOut = () => {
@@ -77,7 +66,6 @@ class LandingPage extends React.Component {
 
     componentDidMount() {
         if (localStorage.getItem('token')) this.setState({ isLoggedIn: true })
-        // this.getCategories()
     }
 
 
