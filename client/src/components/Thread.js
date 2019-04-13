@@ -1,6 +1,6 @@
 import React from 'react';
 import './Thread.css';
-import CreateComment from './CreateComment';
+import Comment from './Comment';
 
 const url = 'http://localhost:3001'
 

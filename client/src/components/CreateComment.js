@@ -49,9 +49,10 @@ export default class CreateComment extends Component {
     render() {
         return (
             <div className='createCommentPage'>
-                <h3>Respond to this thread</h3>
-                <form onSubmit={this.onFormSubmit} id="thread-form">
-                    <textarea rows='4' cols='40' className='commentbox' value={this.state.content} onChange={this.onFormChange} name='content' placeholder='Enter comments here'></textarea>
+                <h2 className='title'>Comment</h2>
+                <h3>Respond to this post</h3>
+                <form onSubmit={this.props.onFormSubmit} id="thread-form">
+                    <textarea rows='4' cols='40' className='commentbox' value={this.props.comment} onChange={this.props.onFormChange} name='content' placeholder='Enter comments here'></textarea>
                     <button>Comment</button>
 
                 </form>
