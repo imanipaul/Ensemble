@@ -25,10 +25,10 @@ class Thread extends React.Component {
         })
     }
 
-    getComments() {
-        console.log('comments prop:', this.props.comments)
+    async getComments() {
+        await console.log('comments prop:', this.props.comments)
         let currentId = parseInt(this.state.threadId)
-        const threadComments = this.props.comments.filter(comment => {
+        const threadComments = await this.props.comments.filter(comment => {
             return comment.threadId === currentId
         })
         console.log('threadComments:', threadComments)
@@ -55,7 +55,6 @@ class Thread extends React.Component {
                 </div>
                 <div className='wrap-thread-boxes'>
                     <div className='threadbox'>
-                        {/* <h2 className='title'>{this.state.thread.title}</h2> */}
                         <p>By'name' </p>
                         <p>Created on {this.state.thread.createdAt}</p>
                         <p>{this.state.thread.content}</p>
@@ -68,7 +67,7 @@ class Thread extends React.Component {
                     <div>
                         {this.state.threadComments &&
                             this.state.threadComments.map(comment => (
-                                <p>{comment.content}</p>
+                                <p key={comment.id}>{comment.content}</p>
                             ))
                         }
                     </div>
