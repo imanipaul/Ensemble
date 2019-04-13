@@ -9,9 +9,22 @@ class LandingPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isLoggedIn: false
+            isLoggedIn: false,
+            categories: []
         }
     }
+
+    async getCategories() {
+        await fetch(`${URL}/category`).then(response => {
+            return response.json();
+        }).then(data => {
+            console.log(data)
+            this.setState({
+                categories: data.allCategories
+            })
+        })
+    }
+
 
     handleLogOut = () => {
         localStorage.removeItem('token')
@@ -64,7 +77,10 @@ class LandingPage extends React.Component {
 
     componentDidMount() {
         if (localStorage.getItem('token')) this.setState({ isLoggedIn: true })
+        this.getCategories()
     }
+
+
 
     render() {
         return (
@@ -72,9 +88,10 @@ class LandingPage extends React.Component {
             <div className='landing-page'>
                 <nav>
                     <h1>Logo</h1>
-                    <a href='#'>Cat1</a>
-                    <a href='#'>Cat2</a>
-                    <a href='#'>Cat3</a>
+
+                    {this.state.categories.map(category => (
+                        <Link to={`/Category/${category.id}`} key={category.id}>{category.name}</Link>
+                    ))}
                 </nav>
 
                 <div className='content'>

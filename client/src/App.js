@@ -46,7 +46,7 @@ class App extends Component {
           />
           <Route path='/Home' render={() => <LoggedIn />} />
           <Route
-            path='/Category/:name'
+            path='/Category/:id'
             render={(props) => <Category {...props} threads={this.state.threads} />} />
           <Route path='/Profile' render={() => <Profile />} />
           <Route
