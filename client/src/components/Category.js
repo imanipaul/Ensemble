@@ -12,7 +12,8 @@ class Category extends React.Component {
         super(props)
         this.state = {
             id: this.props.match.params.id,
-            filteredThreads: []
+            filteredThreads: [],
+            currentCategory: []
         }
 
     }
@@ -28,15 +29,23 @@ class Category extends React.Component {
         return filteredThreads
     }
 
-    renderThreads() {
-        this.getCategoryThreads()
-        return this.state.filteredThreads.map(thread => (
-            <div>{thread.name}</div>
-        ))
+    getCurrentCategory() {
+        let currentId = parseInt(this.state.id)
+        const currentCategory = this.props.categories.filter(category => {
+            return category.id === currentId
+        })
+        this.setState({
+            currentCategory: currentCategory[0]
+        })
+        // console.log('currentcategory', currentCategory)
+        // console.log('first', currentCategory[0])
+        // console.log('name', currentCategory[0].name)
+        // console.log(this.state.currentCategory)
     }
 
     componentDidMount() {
-        this.renderThreads()
+        this.getCategoryThreads()
+        this.getCurrentCategory()
     }
 
 
@@ -44,14 +53,16 @@ class Category extends React.Component {
     render() {
         return (
             <div className='category'>
-                <h1>Category Name</h1>
+                {this.state.currentCategory &&
+
+                    <h1>{this.state.currentCategory.name}</h1>}
                 <div className='category-info'>
                     <div className='category-threads'>
 
                         {this.state.filteredThreads &&
                             this.state.filteredThreads.map(thread => (
 
-                                <div className='category-thread'>
+                                <div className='category-thread' key={thread.id}>
 
                                     <Link to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
                                     <p>by: name</p>
