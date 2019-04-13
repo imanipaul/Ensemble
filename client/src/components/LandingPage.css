@@ -11,7 +11,9 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center
+    align-items: center;
+    border: red 4px solid;
+    background-color: blue;
 }
 
 .recent-posts {
@@ -19,6 +21,7 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-color: orange;
 }
 
 .login {
