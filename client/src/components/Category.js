@@ -50,6 +50,7 @@ class Category extends React.Component {
                 {this.state.currentCategory &&
 
                     <h1>{this.state.currentCategory.name}</h1>}
+
                 <div className='category-info'>
                     <div className='category-threads'>
 
@@ -68,7 +69,7 @@ class Category extends React.Component {
 
 
                     </div>
-
+                    <h3>Create a new thread</h3>
                     <CreateThread />
                 </div>
 
