@@ -59,7 +59,9 @@ class App extends Component {
             render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} />}
           />
 
-          <Route path='/Home' render={() => <LoggedIn />} />
+          <Route
+            path='/Home'
+            render={() => <LoggedIn threads={this.state.threads} categories={this.state.categories} />} />
 
           <Route
             path='/Category/:id'
