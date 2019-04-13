@@ -15,7 +15,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      threads: []
+      threads: [],
+      categories: []
     }
 
   }
@@ -31,8 +32,20 @@ class App extends Component {
     })
   }
 
+  async getCategories() {
+    await fetch(`${url}/category`).then(response => {
+      return response.json();
+    }).then(data => {
+      console.log(data)
+      this.setState({
+        categories: data.allCategories
+      })
+    })
+  }
+
   componentDidMount() {
     this.getThreads()
+    this.getCategories()
   }
 
 
@@ -42,7 +55,7 @@ class App extends Component {
         <Switch>
           <Route
             exact path='/'
-            render={() => <LandingPage threads={this.state.threads} />}
+            render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} />}
           />
           <Route path='/Home' render={() => <LoggedIn />} />
           <Route
