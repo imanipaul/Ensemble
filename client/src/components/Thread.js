@@ -1,6 +1,7 @@
 import React from 'react';
 import './Thread.css';
 import CreateComment from './CreateComment';
+import UpdateThread from './UpdateThread';
 
 const url = 'http://localhost:3001'
 
@@ -35,6 +36,7 @@ class Thread extends React.Component {
         this.setState({
             threadComments: threadComments
         })
+        // console.log(this.threadComments)
         return threadComments
     }
 
@@ -42,6 +44,10 @@ class Thread extends React.Component {
     componentDidMount() {
         this.getThread()
         this.getComments()
+    }
+
+    componentDidUpdate() {
+        // this.getComments()
     }
 
 
@@ -60,6 +66,11 @@ class Thread extends React.Component {
                         <p>Created on {createTime.toLocaleString()}</p>
                         <p>{this.state.thread.content}</p>
                     </div>
+
+
+                    <UpdateThread threadId={this.state.threadId} />
+
+                    <button id={this.state.threadId} onClick={this.props.handleDeleteThreads}>Delete</button>
 
                     <div className='threadpost'>
                         <CreateComment threadId={this.state.threadId} />

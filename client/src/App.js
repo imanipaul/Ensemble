@@ -39,13 +39,38 @@ class App extends Component {
       })
   }
 
+  // delete thread function
+
+  async handleDeleteThreads(event) {
+    event.preventDefault();
+    await fetch(`${url}/thread/${event.target.id}`, {
+      method: 'DELETE'
+    }).then(response => {
+      return response.json();
+    })
+    this.getThreads();
+  }
+
   async getCategories() {
     const response = await fetch(`${url}/category`)
     const data = await response.json()
     console.log(data)
     this.setState({
       categories: data.allCategories
+
     })
+  }
+
+  //delete Category function
+
+  async handleDeleteCategories(event) {
+    event.preventDefault();
+    await fetch(`${url}/category/${event.target.id}`, {
+      method: 'DELETE'
+    }).then(response => {
+      return response.json();
+    })
+    this.getCategories();
   }
 
   getComments() {
@@ -59,12 +84,25 @@ class App extends Component {
     })
   }
 
+
+  // Delete Comment function
+
+  async handleDeleteComments(event) {
+    event.preventDefault();
+    await fetch(`${url}/comment/${event.target.id}}`, {
+      method: 'DELETE'
+    }).then(response => {
+      return response.json();
+    })
+    this.getComments();
+  }
+
   handleLogOut = () => {
     localStorage.removeItem('token')
     this.setState({ isLoggedIn: false })
     alert('Logged out!')
   }
-  
+
   handleLogIn = async event => {
     event.preventDefault()
     const formData = new FormData(event.target)
@@ -110,6 +148,7 @@ class App extends Component {
 
 
 
+
   componentDidMount() {
     if (localStorage.getItem('token')) {
       this.setState({ isLoggedIn: true })
@@ -129,7 +168,7 @@ class App extends Component {
         <Switch>
           <Route
             exact path='/'
-            render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} handleLogIn={this.handleLogIn} handleLogOut={this.handleLogOut} handleSignUp={this.handleSignUp} isLoggedIn={this.state.isLoggedIn}/>}
+            render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} handleLogIn={this.handleLogIn} handleLogOut={this.handleLogOut} handleSignUp={this.handleSignUp} isLoggedIn={this.state.isLoggedIn} />}
           />
 
           <Route
@@ -144,9 +183,9 @@ class App extends Component {
 
           <Route
             path='/Thread/:id'
-            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} />} />
+            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} handleDeleteThreads={this.handleDeleteThreads} />} />
 
-          <Route path='/CreateComment' render={() => <CreateComment />} />
+          {/* <Route path='/CreateComment' render={() => <CreateComment />} /> */}
         </Switch>
       </div>
     );
