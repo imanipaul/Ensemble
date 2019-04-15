@@ -1,0 +1,13 @@
+.comment_submit_button {
+    background-color: greenyellow;
+    border-radius: 6px;
+    border: white 3px solid;
+    width: 75%;
+    padding: 4px 6px;
+    margin: 0 auto;
+}
+
+.comment_form_title {
+    margin-top: 0;
+    color: white;
+}

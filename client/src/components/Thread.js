@@ -47,20 +47,20 @@ class Thread extends React.Component {
 
     render() {
         return (
-            <div className='single-thread-page'>
-                <div className='thread page title'> </div>
+            <div className='single_thread_page'>
+                {/* <div className='xthread_page_title'> </div> */}
 
-                <div className='threadtitle'>
+                <div className='thread_page_title'>
                     <h1>{this.state.thread.title}</h1>
                 </div>
-                <div className='wrap-thread-boxes'>
-                    <div className='threadbox'>
-                        <p>By'name' </p>
-                        <p>Created on {this.state.thread.createdAt}</p>
-                        <p>{this.state.thread.content}</p>
+                <div className='thread_container'>
+                    <div className='thread_container_post'>
+                        <p className="thread_author">By'name' </p>
+                        <p className="thread_created_date">Created on {this.state.thread.createdAt}</p>
+                        <p className="thread_content">{this.state.thread.content}</p>
                     </div>
 
-                    <div className='threadpost'>
+                    <div className='comment_widget'>
                         <CreateComment threadId={this.state.threadId} />
                     </div>
 
