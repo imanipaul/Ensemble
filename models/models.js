@@ -3,7 +3,11 @@ const Sequelize = require('sequelize');
 //deploying
 
 const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:3002/users_db', {
-  dialect: 'postgres'
+  dialect: 'postgres',
+  operatorsAliases: false,
+  define: {
+    underscored: true
+  }
 })
 
 
@@ -13,7 +17,7 @@ const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:3002/
 //   database: 'users_db',
 //   dialect: 'postgres',
 //   operatorsAliases: false,
-//   define: { 
+//   define: {
 //     underscored: true
 //   }
 // });

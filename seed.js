@@ -212,7 +212,7 @@ const main = async () => {
     await digInn.setUser(biff);
     await gitLabs.setUser(nora);
     await sleep.setUser(leila);
-    await lunch.setUser(Aminata);
+    await lunch.setUser(aminata);
 
     await macBookThread.setCategory(services);
     await gameNightThread.setCategory(student_life);
