@@ -46,6 +46,7 @@ class Thread extends React.Component {
 
 
     render() {
+        const createTime = new Date(this.state.thread.createdAt)
         return (
             <div className='single-thread-page'>
                 <div className='thread page title'> </div>
@@ -56,7 +57,7 @@ class Thread extends React.Component {
                 <div className='wrap-thread-boxes'>
                     <div className='threadbox'>
                         <p>By'name' </p>
-                        <p>Created on {this.state.thread.createdAt}</p>
+                        <p>Created on {createTime.toLocaleString()}</p>
                         <p>{this.state.thread.content}</p>
                     </div>
 

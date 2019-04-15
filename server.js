@@ -1,12 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+
 const { User, Category, Thread, Comment } = require('./models/models.js')
 const { Op } = require('sequelize')
 
 const app = express()
-
-// const { User } = require('./models/models')
 
 const { hashPassword, checkPassword, genToken } = require('./auth.js')
 
@@ -48,16 +47,16 @@ app.post('/login', async (req, res) => {
       res.json({
         token,
         user,
-        message: 'Logged in!'
+        "message": "Logged in!"
       })
     } else {
       res.json({
-        message: 'Incorrect password'
+        "message": "Incorrect password"
       })
     }
   } else {
     res.json({
-      message: 'Incorrect name or email'
+      "message": "Incorrect name or email"
     })
   }
 })
@@ -75,7 +74,7 @@ app.post('/signup', async (req, res) => {
   res.json({
     token,
     user,
-    message: 'User successfully created'
+    "message": "User successfully created"
   })
 })
 
