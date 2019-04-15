@@ -38,7 +38,7 @@ class App extends Component {
   
   async handleDeleteThreads(event) {
     event.preventDefault();
-    await fetch(`${url}/thread/:id`, {
+    await fetch(`${url}/thread/${event.target.id}`, {
       method: 'DELETE'
     }).then(response => {
       return response.json();
@@ -63,7 +63,7 @@ class App extends Component {
 
   async handleDeleteCategories(event) {
     event.preventDefault();
-    await fetch(`${url}/category/:id`, {
+    await fetch(`${url}/category/${event.target.id}`, {
       method: 'DELETE'
     }).then(response => {
       return response.json();
@@ -86,7 +86,7 @@ class App extends Component {
 
   async handleDeleteComments(event) {
     event.preventDefault();
-    await fetch(`${url}/comment/:id}`, {
+    await fetch(`${url}/comment/${event.target.id}}`, {
       method: 'DELETE'
     }).then(response => {
       return response.json();
