@@ -34,6 +34,20 @@ class App extends Component {
       })
   }
 
+  // delete thread function
+  
+  async handleDeleteThreads(event) {
+    event.preventDefault();
+    await fetch(`${url}/thread/:id`, {
+      method: 'DELETE'
+    }).then(response => {
+      return response.json();
+    })
+    this.getThreads();
+   }
+
+
+
   getCategories() {
     fetch(`${url}/category`).then(response => {
       return response.json();
@@ -45,6 +59,18 @@ class App extends Component {
     })
   }
 
+  //delete Category function
+
+  async handleDeleteCategories(event) {
+    event.preventDefault();
+    await fetch(`${url}/category/:id`, {
+      method: 'DELETE'
+    }).then(response => {
+      return response.json();
+    })
+    this.getCategories();
+   }
+
   getComments() {
     fetch(`${url}/comment`).then(response => {
       return response.json()
@@ -55,6 +81,18 @@ class App extends Component {
       })
     })
   }
+
+  // Delete comment function
+
+  async handleDeleteComments(event) {
+    event.preventDefault();
+    await fetch(`${url}/comment/:id}`, {
+      method: 'DELETE'
+    }).then(response => {
+      return response.json();
+    })
+    this.getComments();
+   }
 
   componentDidMount() {
     this.getThreads()
