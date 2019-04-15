@@ -57,7 +57,6 @@ class App extends Component {
     console.log(data)
     this.setState({
       categories: data.allCategories
-
     })
   }
 
@@ -106,44 +105,56 @@ class App extends Component {
   handleLogIn = async event => {
     event.preventDefault()
     const formData = new FormData(event.target)
-    const data = {
-      nameOrEmail: formData.get("nameOrEmail"),
-      password: formData.get("password")
-    }
-    const resp = await fetch(url + '/login', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
+    if (formData.get("nameOrEmail") !== '' && formData.get("password") !== '') {
+      const data = {
+        nameOrEmail: formData.get("nameOrEmail"),
+        password: formData.get("password")
       }
-    })
-    const pResp = await resp.json()
-    console.log(pResp)
-    if (pResp.token) localStorage.setItem('token', pResp.token)
-    this.setState({ isLoggedIn: true })
-    await alert(pResp.message)
+      const resp = await fetch(url + '/login', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+        'Content-Type': 'application/json'
+        }
+      })
+      const pResp = await resp.json()
+      console.log(pResp)
+      if (pResp.token) {
+        localStorage.setItem('token', pResp.token)
+        this.setState({ isLoggedIn: true })
+      }
+      await alert(pResp.message)
+    } else {
+      alert('One or more login inputs missing')
+    }
   }
 
   handleSignUp = async event => {
     event.preventDefault()
     const formData = new FormData(event.target)
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      password: formData.get("password")
-    }
-    const resp = await fetch(url + '/signup', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
+    if (formData.get("name") !== '' && formData.get("password") !== '' && formData.get("email") !== '') {
+      const data = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        password: formData.get("password")
       }
-    })
-    const pResp = await resp.json()
-    await console.log(pResp)
-    if (pResp.token) localStorage.setItem('token', pResp.token)
-    this.setState({ isLoggedIn: true })
-    alert(pResp.message)
+      const resp = await fetch(url + '/signup', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const pResp = await resp.json()
+      await console.log(pResp)
+      if (pResp.token) {
+        localStorage.setItem('token', pResp.token)
+        this.setState({ isLoggedIn: true })
+      }
+      alert(pResp.message)
+    } else {
+      alert('One or more signup inputs are missing')
+    }
   }
 
 

@@ -35,6 +35,7 @@ class Category extends React.Component {
         this.setState({
             currentCategory: currentCategory[0]
         })
+        console.log(this.props)
     }
 
     componentDidMount() {
