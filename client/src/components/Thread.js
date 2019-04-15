@@ -1,6 +1,7 @@
 import React from 'react';
 import './Thread.css';
 import CreateComment from './CreateComment';
+import UpdateThread from './UpdateThread';
 
 const url = 'http://localhost:3001'
 
@@ -59,6 +60,9 @@ class Thread extends React.Component {
                         <p>Created on {this.state.thread.createdAt}</p>
                         <p>{this.state.thread.content}</p>
                     </div>
+
+                    <p>Update:</p>
+                    <UpdateThread threadId={this.state.threadId} />
 
                     <div className='threadpost'>
                         <CreateComment threadId={this.state.threadId} />
