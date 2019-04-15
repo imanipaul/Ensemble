@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './CreateComments.css';
+import './Thread.css';
 
 const url = 'http://localhost:3001/comment';
 
@@ -44,7 +44,7 @@ export default class CreateComment extends Component {
         return (
             <div className='createCommentPage'>
                 <h3 className="comment_form_title">Respond To This Post</h3>
-                <form onSubmit={this.onFormSubmit} id="thread-form">
+                <form onSubmit={this.onFormSubmit} id="comment_form">
                     <textarea rows='4' cols='40' className='comment_input_box' value={this.state.content} onChange={this.onFormChange} name='content' placeholder='Enter comments here'></textarea>
                     <button className="comment_submit_button">Comment</button>
 
