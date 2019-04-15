@@ -2,25 +2,25 @@ const Sequelize = require('sequelize');
 
 //deploying
 
-const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:3002/users_db', {
-  dialect: 'postgres',
-  operatorsAliases: false,
-  define: {
-    underscored: true
-  }
-})
-
-
-// connect to database
-
-// const db = new Sequelize({
-//   database: 'users_db',
+// const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:3001/users_db', {
 //   dialect: 'postgres',
 //   operatorsAliases: false,
 //   define: {
 //     underscored: true
 //   }
-// });
+// })
+
+
+// connect to database
+
+const db = new Sequelize({
+  database: 'users_db',
+  dialect: 'postgres',
+  operatorsAliases: false,
+  define: {
+    underscored: true
+  }
+});
 
 // define user model
 
