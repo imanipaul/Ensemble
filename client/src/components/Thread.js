@@ -70,6 +70,8 @@ class Thread extends React.Component {
 
                     <UpdateThread threadId={this.state.threadId} />
 
+                    <button id={this.state.threadId} onClick={this.props.handleDeleteThreads}>Delete</button>
+
                     <div className='threadpost'>
                         <CreateComment threadId={this.state.threadId} />
                     </div>
