@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 //deploying
 
-const db = new Sequelize(process.env.DATABSE_URL || 'postgres://localhost:80/users_db', {
+const db = new Sequelize(process.env.DATABSE_URL || 'postgres://localhost:4567/users_db', {
   dialect: 'postgres'
 })
 

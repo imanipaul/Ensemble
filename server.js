@@ -14,7 +14,7 @@ app.use('/', express.static('./build/'))
 app.use(bodyParser.json())
 app.use(cors())
 
-const Port = process.env.PORT || 80
+const Port = process.env.PORT || 4567
 
 app.get('/', (req, res) => {
   res.send('This is the home page of the server')
