@@ -14,7 +14,7 @@ app.use('/', express.static('./build/'))
 app.use(bodyParser.json())
 app.use(cors())
 
-const Port = process.env.PORT || 3001
+const Port = process.env.PORT || 3002
 
 app.get('/', (req, res) => {
   res.send('This is the home page of the server')
@@ -64,7 +64,9 @@ app.post('/login', async (req, res) => {
     }
   }
   catch (e) {
-    console.log(e.message)
+    res.status(500).json({
+      message: e.message
+    })
   }
 })
 
@@ -86,7 +88,9 @@ app.post('/signup', async (req, res) => {
     })
   }
   catch (e) {
-    console.log(e.message)
+    res.status(500).json({
+      message: e.message
+    })
   }
 })
 
