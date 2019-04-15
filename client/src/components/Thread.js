@@ -2,6 +2,8 @@ import React from 'react';
 import './Thread.css';
 import CreateComment from './CreateComment';
 import UpdateThread from './UpdateThread';
+import { withRouter } from 'react-router';
+import LandingPage from './LandingPage';
 
 const url = 'http://localhost:3001'
 
@@ -15,7 +17,7 @@ class Thread extends React.Component {
         }
     }
 
-    async getThread() {
+    async getThreads() {
         await fetch(`${url}/thread/${this.props.match.params.id}`).then(response => {
             return response.json();
         }).then(data => {
@@ -42,8 +44,8 @@ class Thread extends React.Component {
 
 
     componentDidMount() {
-        this.getThread()
-        this.getComments()
+        this.getThreads()
+        // this.getComments()
     }
 
     componentDidUpdate() {
@@ -54,25 +56,28 @@ class Thread extends React.Component {
     render() {
         const createTime = new Date(this.state.thread.createdAt)
         return (
-            <div className='single-thread-page'>
-                <div className='thread page title'> </div>
+            <div className='single_thread_page'>
+                {/* <div className='xthread_page_title'> </div> */}
 
-                <div className='threadtitle'>
+                <div className='thread_page_title'>
                     <h1>{this.state.thread.title}</h1>
                 </div>
-                <div className='wrap-thread-boxes'>
-                    <div className='threadbox'>
-                        <p>By'name' </p>
-                        <p>Created on {createTime.toLocaleString()}</p>
-                        <p>{this.state.thread.content}</p>
+
+                <div className='thread_container'>
+                    <div className='thread_container_post'>
+                        <p className='thread_author'>By'name' </p>
+                        <p className='thread_created_date'>Created on {createTime.toLocaleString()}</p>
+                        <p className='thread_content'>{this.state.thread.content}</p>
                     </div>
 
 
                     <UpdateThread threadId={this.state.threadId} />
 
-                    <button id={this.state.threadId} onClick={this.props.handleDeleteThreads}>Delete</button>
+                    <button id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
+                    this.props.history.push('/')}} >Delete</button>
 
-                    <div className='threadpost'>
+                    <div className='comment_widget'>
+
                         <CreateComment threadId={this.state.threadId} />
                     </div>
 
@@ -89,6 +94,6 @@ class Thread extends React.Component {
             </div>
         )
     }
-}
+    }
 
-export default Thread
+export default withRouter(Thread);
