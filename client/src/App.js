@@ -180,7 +180,7 @@ this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
 
           <Route
             path='/Thread/:id'
-            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} handleDeleteThreads={this.handleDeleteThreads} />} />
+            render={(props) => <Thread {...props} categories= {this.state.categories} threads={this.state.threads} comments={this.state.comments} handleDeleteThreads={this.handleDeleteThreads} />} />
 
           {/* <Route path='/CreateComment' render={() => <CreateComment />} /> */}
         </Switch>
