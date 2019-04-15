@@ -47,16 +47,16 @@ app.post('/login', async (req, res) => {
       res.json({
         token,
         user,
-        message: 'Logged in!'
+        "message": "Logged in!"
       })
     } else {
       res.json({
-        message: 'Incorrect password'
+        "message": "Incorrect password"
       })
     }
   } else {
     res.json({
-      message: 'Incorrect name or email'
+      "message": "Incorrect name or email"
     })
   }
 })
@@ -74,7 +74,7 @@ app.post('/signup', async (req, res) => {
   res.json({
     token,
     user,
-    message: 'User successfully created'
+    "message": "User successfully created"
   })
 })
 
