@@ -66,6 +66,10 @@ class CreateThread extends React.Component {
     }
 
     render() {
+        let categoryDropdown
+         categoryDropdown = this.props.categories.map(category => <option value = {category.name}>{category.name}</option> )
+         console.log(this.props)
+
         return (
             <div>
                 <form name='thread-post' onSubmit={this.onFormSubmit}>
@@ -73,7 +77,9 @@ class CreateThread extends React.Component {
 
                     <textarea rows='4' cols='40' name='content' form='thread-post' onChange={this.onFormChange} value={this.state.content}>Enter post here...</textarea>
 
-                    <input className='thread-post-category' type='text' placeholder='Add category here' onChange={this.onFormChange} name='category' value={this.state.category}></input>
+                    <select className='thread-post-category' type='text' placeholder='Add category here' onChange={this.onFormChange} name='category' value={this.state.category}>
+                    {categoryDropdown}
+                    </select>
 
                     <button className='thread-post-submit'>Submit</button>
 

@@ -70,7 +70,7 @@ class Category extends React.Component {
 
                     </div>
                     <h3>Create a new thread</h3>
-                    <CreateThread />
+                    <CreateThread categories={this.props.categories}/>
                 </div>
 
             </div>

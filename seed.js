@@ -98,27 +98,27 @@ const main = async () => {
 
     // Create Category
     const homework = await Category.create({
-        name: 'homework',
+        name: 'Homework',
     });
 
     const projects = await Category.create({
-        name: 'projects',
+        name: 'Projects',
     });
 
     const lesson = await Category.create({
-        name: 'lesson',
+        name: 'Lesson',
     });
 
     const services = await Category.create({
-        name: 'services',
+        name: 'Services',
     });
 
     const food = await Category.create({
-        name: 'food',
+        name: 'Food',
     });
 
     const student_life = await Category.create({
-        name: 'student_life',
+        name: 'Student_life',
     });
 
     // Create Thread
