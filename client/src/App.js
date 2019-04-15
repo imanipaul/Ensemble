@@ -17,7 +17,8 @@ class App extends Component {
     this.state = {
       threads: [],
       categories: [],
-      comments: []
+      comments: [],
+      isLoggedIn: false
     }
 
   }
@@ -34,7 +35,7 @@ class App extends Component {
       })
   }
 
-  // delete thread function
+ // delete thread function
   
   async handleDeleteThreads(event) {
     event.preventDefault();
@@ -46,16 +47,13 @@ class App extends Component {
     this.getThreads();
    }
 
+  async getCategories() {
+    const response = await fetch(`${url}/category`)
+    const data = await response.json()
+    console.log(data)
+    this.setState({
+      categories: data.allCategories
 
-
-  getCategories() {
-    fetch(`${url}/category`).then(response => {
-      return response.json();
-    }).then(data => {
-      console.log(data)
-      this.setState({
-        categories: data.allCategories
-      })
     })
   }
 
@@ -82,6 +80,7 @@ class App extends Component {
     })
   }
 
+
   // Delete Comment function
 
   async handleDeleteComments(event) {
@@ -94,7 +93,60 @@ class App extends Component {
     this.getComments();
    }
 
+  handleLogOut = () => {
+    localStorage.removeItem('token')
+    this.setState({ isLoggedIn: false })
+    alert('Logged out!')
+  }
+  
+  handleLogIn = async event => {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const data = {
+      nameOrEmail: formData.get("nameOrEmail"),
+      password: formData.get("password")
+    }
+    const resp = await fetch(url + '/login', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const pResp = await resp.json()
+    console.log(pResp)
+    if (pResp.token) localStorage.setItem('token', pResp.token)
+    this.setState({ isLoggedIn: true })
+    await alert(pResp.message)
+  }
+
+  handleSignUp = async event => {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      password: formData.get("password")
+    }
+    const resp = await fetch(url + '/signup', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const pResp = await resp.json()
+    await console.log(pResp)
+    if (pResp.token) localStorage.setItem('token', pResp.token)
+    this.setState({ isLoggedIn: true })
+    alert(pResp.message)
+  }
+
+
+
+
   componentDidMount() {
+    if (localStorage.getItem('token')) this.setState({ isLoggedIn: true })
     this.getThreads()
     this.getCategories()
     this.getComments()
@@ -107,7 +159,7 @@ class App extends Component {
         <Switch>
           <Route
             exact path='/'
-            render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} />}
+            render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} handleLogIn={this.handleLogIn} handleLogOut={this.handleLogOut} handleSignUp={this.handleSignUp} isLoggedIn={this.state.isLoggedIn}/>}
           />
 
           <Route
