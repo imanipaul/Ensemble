@@ -201,7 +201,7 @@ const main = async () => {
 
 
 
-       
+
 
     // Associations
     await macBookThread.setUser(alane);
@@ -242,9 +242,8 @@ const main = async () => {
 
 
 
-
+    process.exit()
 
 }
 
 main()
-// process.exit()
