@@ -2,6 +2,8 @@ import React from 'react';
 import './Thread.css';
 import CreateComment from './CreateComment';
 import UpdateThread from './UpdateThread';
+import { withRouter } from 'react-router';
+import LandingPage from './LandingPage';
 
 const url = 'http://localhost:3001'
 
@@ -15,7 +17,7 @@ class Thread extends React.Component {
         }
     }
 
-    async getThread() {
+    async getThreads() {
         await fetch(`${url}/thread/${this.props.match.params.id}`).then(response => {
             return response.json();
         }).then(data => {
@@ -42,8 +44,8 @@ class Thread extends React.Component {
 
 
     componentDidMount() {
-        this.getThread()
-        this.getComments()
+        this.getThreads()
+        // this.getComments()
     }
 
     componentDidUpdate() {
@@ -70,7 +72,8 @@ class Thread extends React.Component {
 
                     <UpdateThread threadId={this.state.threadId} />
 
-                    <button id={this.state.threadId} onClick={this.props.handleDeleteThreads}>Delete</button>
+                    <button id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
+                    this.props.history.push('/')}} >Delete</button>
 
                     <div className='threadpost'>
                         <CreateComment threadId={this.state.threadId} />
@@ -89,6 +92,6 @@ class Thread extends React.Component {
             </div>
         )
     }
-}
+    }
 
-export default Thread
+export default withRouter(Thread);
