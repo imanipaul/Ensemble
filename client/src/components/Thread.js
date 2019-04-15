@@ -1,6 +1,7 @@
 import React from 'react';
 import './Thread.css';
 import CreateComment from './CreateComment';
+import UpdateThread from './UpdateThread';
 
 const url = 'http://localhost:3001'
 
@@ -35,6 +36,7 @@ class Thread extends React.Component {
         this.setState({
             threadComments: threadComments
         })
+        // console.log(this.threadComments)
         return threadComments
     }
 
@@ -44,8 +46,13 @@ class Thread extends React.Component {
         this.getComments()
     }
 
+    componentDidUpdate() {
+        // this.getComments()
+    }
+
 
     render() {
+        const createTime = new Date(this.state.thread.createdAt)
         return (
             <div className='single_thread_page'>
                 {/* <div className='xthread_page_title'> </div> */}
@@ -53,14 +60,21 @@ class Thread extends React.Component {
                 <div className='thread_page_title'>
                     <h1>{this.state.thread.title}</h1>
                 </div>
+
                 <div className='thread_container'>
                     <div className='thread_container_post'>
-                        <p className="thread_author">By'name' </p>
-                        <p className="thread_created_date">Created on {this.state.thread.createdAt}</p>
-                        <p className="thread_content">{this.state.thread.content}</p>
+                        <p className='thread_author'>By'name' </p>
+                        <p className='thread_created_date'>Created on {createTime.toLocaleString()}</p>
+                        <p className='thread_content'>{this.state.thread.content}</p>
                     </div>
 
+
+                    <UpdateThread threadId={this.state.threadId} />
+
+                    <button id={this.state.threadId} onClick={this.props.handleDeleteThreads}>Delete</button>
+
                     <div className='comment_widget'>
+
                         <CreateComment threadId={this.state.threadId} />
                     </div>
 
