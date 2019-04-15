@@ -8,7 +8,11 @@ import Thread from './components/Thread'
 import Category from './components/Category'
 import CreateComment from './components/CreateComment'
 
+import decode from 'jwt-decode'
+
 const url = 'http://localhost:3001'
+
+let userName = ''
 
 class App extends Component {
 
@@ -107,7 +111,9 @@ class App extends Component {
 
 
   componentDidMount() {
-    if (localStorage.getItem('token')) this.setState({ isLoggedIn: true })
+    if (localStorage.getItem('token')) {
+      this.setState({ isLoggedIn: true })
+    }
     this.getThreads()
     this.getCategories()
     this.getComments()
@@ -115,6 +121,9 @@ class App extends Component {
 
 
   render() {
+    if (localStorage.getItem('token')) {
+      userName = decode(localStorage.getItem('token'))
+    }
     return (
       <div className="App">
         <Switch>
