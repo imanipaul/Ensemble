@@ -21,7 +21,13 @@ class App extends Component {
       isLoggedIn: false
     }
 
-  }
+this.getThreads = this.getThreads.bind(this)
+this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
+
+
+   }
+
+
 
   getThreads() {
     fetch(`${url}/thread`)
