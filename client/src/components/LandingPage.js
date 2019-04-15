@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
-import logo from '../images/ensemble-logo.png';
+import logo from '../images/logo.png';
 import bgImage from '../images/bgimage.jpg';
 
 const URL = 'http://localhost:3001'
@@ -114,10 +114,8 @@ class LandingPage extends React.Component {
                     </form>
                     
                     {/* {this.state.isLoggedIn && <button onClick={this.handleLogOut}>Logout</button>} */}
-
-
                 </div>
-                <h1 className='tagline_text'>Where General Assembly Alumni and students convene.</h1>
+                <h1 className='tagline_text'>Where General Assembly alumni and students convene.</h1>
             </div>
         )
     }
