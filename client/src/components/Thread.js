@@ -35,6 +35,7 @@ class Thread extends React.Component {
         this.setState({
             threadComments: threadComments
         })
+        // console.log(this.threadComments)
         return threadComments
     }
 
@@ -42,6 +43,10 @@ class Thread extends React.Component {
     componentDidMount() {
         this.getThread()
         this.getComments()
+    }
+
+    componentDidUpdate() {
+        // this.getComments()
     }
 
 

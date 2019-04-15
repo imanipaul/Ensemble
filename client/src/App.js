@@ -35,14 +35,39 @@ class App extends Component {
       })
   }
 
+ // delete thread function
+  
+  async handleDeleteThreads(event) {
+    event.preventDefault();
+    await fetch(`${url}/thread/${event.target.id}`, {
+      method: 'DELETE'
+    }).then(response => {
+      return response.json();
+    })
+    this.getThreads();
+   }
+
   async getCategories() {
     const response = await fetch(`${url}/category`)
     const data = await response.json()
     console.log(data)
     this.setState({
       categories: data.allCategories
+
     })
   }
+
+  //delete Category function
+
+  async handleDeleteCategories(event) {
+    event.preventDefault();
+    await fetch(`${url}/category/${event.target.id}`, {
+      method: 'DELETE'
+    }).then(response => {
+      return response.json();
+    })
+    this.getCategories();
+   }
 
   getComments() {
     fetch(`${url}/comment`).then(response => {
@@ -54,6 +79,19 @@ class App extends Component {
       })
     })
   }
+
+
+  // Delete Comment function
+
+  async handleDeleteComments(event) {
+    event.preventDefault();
+    await fetch(`${url}/comment/${event.target.id}}`, {
+      method: 'DELETE'
+    }).then(response => {
+      return response.json();
+    })
+    this.getComments();
+   }
 
   handleLogOut = () => {
     localStorage.removeItem('token')
@@ -103,6 +141,7 @@ class App extends Component {
     this.setState({ isLoggedIn: true })
     alert(pResp.message)
   }
+
 
 
 
