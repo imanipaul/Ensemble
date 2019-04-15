@@ -1,16 +1,22 @@
 const Sequelize = require('sequelize');
 
+//deploying
+
+const db = new Sequelize(process.env.DATABSE_URL || 'postgres://localhost:3001/users_db', {
+  dialect: 'postgres'
+})
+
 
 // connect to database
 
-const db = new Sequelize({
-  database: 'users_db',
-  dialect: 'postgres',
-  operatorsAliases: false,
-  define: { 
-    underscored: true
-  }
-});
+// const db = new Sequelize({
+//   database: 'users_db',
+//   dialect: 'postgres',
+//   operatorsAliases: false,
+//   define: { 
+//     underscored: true
+//   }
+// });
 
 // define user model
 
@@ -24,7 +30,7 @@ const User = db.define('user', {
   },
   password_digest: {
     type: Sequelize.STRING
-}
+  }
 });
 
 // define category model
@@ -33,7 +39,7 @@ const Category = db.define('category', {
   name: {
     type: Sequelize.STRING
   },
-  
+
 })
 
 // define thread model
@@ -50,10 +56,10 @@ const Thread = db.define('thread', {
 // define comment model
 
 const Comment = db.define('comment', {
-    content: {
-      type: Sequelize.TEXT
-    }
-  })
+  content: {
+    type: Sequelize.TEXT
+  }
+})
 
 // associations
 

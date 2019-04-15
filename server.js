@@ -9,6 +9,8 @@ const app = express()
 
 const { hashPassword, checkPassword, genToken } = require('./auth.js')
 
+app.use('/', express.static('./build/'))
+
 app.use(bodyParser.json())
 app.use(cors())
 
