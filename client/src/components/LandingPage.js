@@ -2,16 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './LandingPage.css';
 
-const URL = 'http://localhost:1340'
+const URL = 'http://localhost:3001'
 
 class LandingPage extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            isLoggedIn: false
+            isLoggedIn: false,
         }
     }
+
+
 
     handleLogOut = () => {
         localStorage.removeItem('token')
@@ -66,15 +68,18 @@ class LandingPage extends React.Component {
         if (localStorage.getItem('token')) this.setState({ isLoggedIn: true })
     }
 
+
+
     render() {
         return (
 
             <div className='landing-page'>
                 <nav>
                     <h1>Logo</h1>
-                    <a href='#'>Cat1</a>
-                    <a href='#'>Cat2</a>
-                    <a href='#'>Cat3</a>
+
+                    {this.props.categories.map(category => (
+                        <Link to={`/Category/${category.id}`} key={category.id}>{category.name}</Link>
+                    ))}
                 </nav>
 
                 <div className='content'>

@@ -8,31 +8,58 @@ import Thread from './components/Thread'
 import Category from './components/Category'
 import CreateComment from './components/CreateComment'
 
-const url = 'http://localhost:1340'
+const url = 'http://localhost:3001'
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      threads: []
+      threads: [],
+      categories: [],
+      comments: []
     }
 
   }
 
-  async getThreads() {
-    await fetch(`${url}/thread`).then(response => {
+  getThreads() {
+    fetch(`${url}/thread`)
+      .then(response => {
+        return response.json();
+      }).then(data => {
+        console.log(data)
+        this.setState({
+          threads: data
+        })
+      })
+  }
+
+  getCategories() {
+    fetch(`${url}/category`).then(response => {
       return response.json();
     }).then(data => {
       console.log(data)
       this.setState({
-        threads: data
+        categories: data.allCategories
+      })
+    })
+  }
+
+  getComments() {
+    fetch(`${url}/comment`).then(response => {
+      return response.json()
+    }).then(data => {
+      console.log('comments', data)
+      this.setState({
+        comments: data
       })
     })
   }
 
   componentDidMount() {
     this.getThreads()
+    this.getCategories()
+    this.getComments()
   }
 
 
@@ -42,16 +69,23 @@ class App extends Component {
         <Switch>
           <Route
             exact path='/'
-            render={() => <LandingPage threads={this.state.threads} />}
+            render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} />}
           />
-          <Route path='/Home' render={() => <LoggedIn />} />
+
           <Route
-            path='/Category/:name'
-            render={(props) => <Category {...props} threads={this.state.threads} />} />
+            path='/Home'
+            render={() => <LoggedIn threads={this.state.threads} categories={this.state.categories} />} />
+
+          <Route
+            path='/Category/:id'
+            render={(props) => <Category {...props} threads={this.state.threads} categories={this.state.categories} />} />
+
           <Route path='/Profile' render={() => <Profile />} />
+
           <Route
             path='/Thread/:id'
-            render={(props) => <Thread {...props} threads={this.state.threads} />} />
+            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} />} />
+
           <Route path='/CreateComment' render={() => <CreateComment />} />
         </Switch>
       </div>
