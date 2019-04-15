@@ -1,37 +1,168 @@
-.landing-page{
+.landing_page{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    width: 100%;
+    background-color: #5B85AA;
+    font-family: 'Maven Pro', sans-serif;
 }
-
-nav {
+/* ---navigation bar starts here--- */
+.nav_container {
     width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center
+    align-items: flex-start;
+    background-color: rgba(55, 34, 72,.5);
+    color: white;
+    text-decoration: none;
+    height: 100%;
 }
-
-.recent-posts {
+.nav_items {
+    width: 100%;
+    background-color: rgba(55,34,72,.5);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-around;
+    padding: 12px;
 }
 
-.login {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.logo {
+    background-image: url(../images/ensemble-logo.png);
 }
-
-.content {
-    width: 100vw;
+.logo-style {
+    width: 150px;
+    height: 50px;
+    margin: 0 24px;
+}
+.logout_button {
+    background-color: red;
+    border-radius: 6px;
+    border: white 3px solid;
+    padding: 4px 6px;
+    margin: 4px;
+    color: black;
+    width: 80px;
+}
+/* ---nav bar ends here--- */
+/* ---link styles on nav start here--- */
+a:link {
+    color: white;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+a:hover {
+    color: grey;
+}
+a:visited {
+    color: grey;
+    font-weight: 400;
+    font-style: italic;
+}
+/* ---links styles end here--- */
+/* ---content container for recent, login, sign up widgets--- */
+.content_container {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center
+    align-items: flex-start;
+    background-color: #5b85aa;
+    height: 100%;
+    padding: 24px 0 440px;
+    background-position: center;
+    background-size: cover;
 }
+
+h1.tagline_text {
+    /* position: relative; */
+    /* flex-direction: column; */
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    /* width: 800px; */
+    /* background-color: #171123; */
+}
+/* ---recent posts widget starts here--- */
+.recent_posts_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: rgba(65,71,112,.5);
+    padding: 18px;
+    border-radius: 8px;
+    width: 40%;
+
+}
+.recent_posts_sec_title {
+    margin-top: 0;
+    color: white;
+}
+.recent_posts_items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: space-between;
+}
+a.recent_posts_items:link {
+    align-content: space-between;
+    margin: 24px;
+    color: yellow;
+} 
+/* ---recent posts widget ends here---*/
+/* ---login widget starts here--- */
+.login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(65,71,112,.5);
+    padding: 18px;
+    border-radius: 8px;
+}
+.login_form_title {
+    margin-top: 0;
+    color: white;
+}
+.login_button {
+    background-color: greenyellow;
+    border-radius: 6px;
+    border: white 3px solid;
+    width: 75%;
+    padding: 4px 6px;
+    margin: 4px;
+}
+/* --login widget ends here--- */
+/* ---input form fields for widgets-- */
+.input_box {
+    height: 18px;
+    margin: 4px;
+}
+
+/* ---sign up widget starts here--- */
+.signup_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(65,71,112,.5);
+    padding: 18px;
+    border-radius: 8px;
+}
+.signup_form_title {
+    margin-top: 0;
+    color: white;
+}
+.signup_button {
+    background-color: orange;
+    border-radius: 6px;
+    border: white 3px solid;
+    width: 75%;
+    padding: 4px 6px;
+    margin: 4px;
+}
+
