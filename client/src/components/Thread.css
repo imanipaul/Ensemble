@@ -1,39 +1,104 @@
-.single-thread-page{
+.single_thread_page {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: #5B85AA;
 }
 
+.thread_page_title {
+    color: white;
+    text-transform: capitalize;
+    font-size: 24px;
+    font-weight: 800;
+}
+/* ---thread widget starts here--- */
+.thread_container {
+    display: flex;
+    justify-content: space-between;
+    width: 74%;
+    border-radius: 8px;
+    padding: 24px;
+}
 
-.threadbox{
+.thread_container_post {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 12px;
 }
 
-.threadpost {
+p.thread_author {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    margin: 8px;
+    font-weight: 800;
+    font-size: 20px;
+
+}
+
+p.thread_created_date {
+    display: flex;
+    justify-content: flex-start;
+    margin: 8px;
+    text-align: left;
+    font-style: oblique;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+p.thread_content {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    margin: 8px;
+    font-weight: 700;
+}
+/* --- thread widget ends here--- */
+
+/* ---comments widget starts here--- */
+
+.comment_widget {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #372248;
+    padding: 18px;
+    border-radius: 8px;
+    margin: 12px;
 }
 
-.commentbox {
-    height:10vh;
+.comment_form_title {
+    margin-top: 0;
+    color: white;
 }
 
-#thread-form {
+#comment_form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width:20vw;
 }
 
-.wrap-thread-boxes{
-display: flex;
-justify-content: space-between;
-width: 74%;
+.comment_input_box {
+    height:160px;
+    margin: 8px;
 }
+
+.comment_submit_button {
+    background-color: greenyellow;
+    border-radius: 6px;
+    border: white 3px solid;
+    width: 75%;
+    padding: 4px 6px;
+    margin: 0 auto;
+}
+
+
+
+
