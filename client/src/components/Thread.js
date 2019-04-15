@@ -67,7 +67,7 @@ class Thread extends React.Component {
                         <p>{this.state.thread.content}</p>
                     </div>
 
-                    <p>Update:</p>
+
                     <UpdateThread threadId={this.state.threadId} />
 
                     <div className='threadpost'>
