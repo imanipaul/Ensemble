@@ -82,7 +82,7 @@ class App extends Component {
     })
   }
 
-  // Delete comment function
+  // Delete Comment function
 
   async handleDeleteComments(event) {
     event.preventDefault();
