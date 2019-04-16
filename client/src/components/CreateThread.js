@@ -1,4 +1,5 @@
 import React from 'react'
+import './CreateThread.css';
 
 const url = 'http://localhost:3001'
 
@@ -61,13 +62,10 @@ class CreateThread extends React.Component {
     render() {
         return (
             <div>
-                <form name='thread-post' onSubmit={this.onFormSubmit}>
-                    <input className='thread-post-title' type='text' placeholder='Add title here' name='title' onChange={this.onFormChange} value={this.state.title}></input>
-
-                    <textarea rows='4' cols='40' name='content' form='thread-post' onChange={this.onFormChange} value={this.state.content}>Enter post here...</textarea>
-
-                    <button className='thread-post-submit'>Submit</button>
-
+                <form className="new_thread_form" name='thread_post' onSubmit={this.onFormSubmit}>
+                    <input className='new_thread_title_input' type='text' placeholder='Add title here' name='title' onChange={this.onFormChange} value={this.state.title}></input>
+                    <textarea className='new_thread_text_input' rows='4' cols='40' name='content' form='thread-post' onChange={this.onFormChange} value={this.state.content}>Enter new post here...</textarea>
+                    <button className='new_thread_submit_btn'>Submit</button>
                 </form>
             </div>
         )

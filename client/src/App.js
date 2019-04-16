@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom'
 import LandingPage from './components/LandingPage'
-import LoggedIn from './components/LoggedIn'
 import Profile from './components/Profile'
 import Thread from './components/Thread'
 import Category from './components/Category'

@@ -1,8 +1,9 @@
 import React from 'react'
 import CreateThread from './CreateThread'
 import { Link } from 'react-router-dom'
+import './Category.css'
+import './CreateThread.css'
 import { withRouter } from 'react-router'
-import './Category.css';
 
 
 
@@ -48,36 +49,33 @@ class Category extends React.Component {
 
     render() {
         return (
-            <div className='category'>
+            <div className='category_page'>
+      
 
                 <button onClick={this.props.history.goBack}>Go Back</button>
 
+
                 {this.state.currentCategory &&
-
                     <h1 className='category_page_title'>{this.state.currentCategory.name}</h1>}
-
-                <div className='category-info'>
-                    <div className='category-threads'>
-
+                <div className='category_section'>
+                    <div className='category_container'>
                         {this.state.filteredThreads &&
                             this.state.filteredThreads.map(thread => (
+                                <div className='category_thread_container' key={thread.id}>
+                                    <Link className='category_container_title' to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
+                                    <p className='category_thread_author'>By: {this.props.users && this.props.users.find(user => user.id === thread.userId).name}</p>
+                                    <p className='category_thread_created_on'>Created on: {new Date(thread.createdAt).toLocaleString()}</p>
 
-                                <div className='category-thread' key={thread.id}>
-
-                                    <Link to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
-                                    {this.props.users &&
-                                        <p>By: {this.props.users.find(user => user.id === thread.userId).name}</p>
-                                    }
-                                    <p>Created on: {new Date(thread.createdAt).toLocaleString()}</p>
                                 </div>
-
                             ))
                         }
-
-
+                    {/* classes defined in CreateThread.css */}
+                    <div className='create_new_thread_widget'>
+                    <h3 className='create_new_thread_title'>Create a new thread</h3>
+                    <CreateThread  currentUser={this.props.currentUser} categoryId={this.state.id} />
                     </div>
-                    <h3>Create a new thread</h3>
-                    <CreateThread currentUser={this.props.currentUser} categoryId={this.state.id} />
+                    </div>
+
                 </div>
 
             </div>
