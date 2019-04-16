@@ -14,6 +14,9 @@ class Thread extends React.Component {
             threadId: this.props.match.params.id,
             thread: {},
             threadComments: [],
+            title: '',
+            content: '',
+            update: false
         }
     }
 
@@ -64,20 +67,28 @@ class Thread extends React.Component {
                 <div className='thread_page_title'>
                     <h1>{this.state.thread.title}</h1>
                 </div>
-
-                <div className='wrap-thread-boxes'>
-                    <div className='threadbox'>
-                        <p>By {threadUser.name} </p>
-                        <p>Created on {createTime.toLocaleString()}</p>
-                        <p>{this.state.thread.content}</p>
+                <div className='thread_container'>
+                    <div className='thread_container_post'>
+                        <p className='thread_author'>By {threadUser.name} </p>
+                        <p className='thread_created_date'>Created on {createTime.toLocaleString()}</p>
+                        <p className='thread_content'>{this.state.thread.content}</p>
+                        <button className=" delete_button" id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
+                        this.props.history.push('/')}} >Delete</button>
+                    
+                        <button className="update_button" onClick={(event) => {
+                        event.preventDefault();
+                        this.setState({
+                        update: !this.state.update
+                        })
+                        }}>Update</button>
 
                     </div>
 
 
-                    <UpdateThread threadId={this.state.threadId} />
+                    <UpdateThread threadId={this.state.threadId} update={this.state.update}/>
 
-                    <button id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
-                    this.props.history.push('/')}} >Delete</button>
+                    {/* <button id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
+                    this.props.history.push('/')}} >Delete</button> */}
 
                     <div className='comment_widget'>
 

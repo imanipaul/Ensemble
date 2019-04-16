@@ -50,7 +50,7 @@ class Category extends React.Component {
             <div className='category'>
                 {this.state.currentCategory &&
 
-                    <h1>{this.state.currentCategory.name}</h1>}
+                    <h1 className='category_page_title'>{this.state.currentCategory.name}</h1>}
 
                 <div className='category-info'>
                     <div className='category-threads'>
