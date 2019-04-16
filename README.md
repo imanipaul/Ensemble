@@ -4,7 +4,7 @@ Ensemble is an app that will allow members from the GA family to interact with e
 
 ### Picture
 
-![Initial Wire Frame](src/images/bgimage.jpg)
+![Initial Wire Frame](src/images/readme.png)
 
 ### Installation
 
