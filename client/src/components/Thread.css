@@ -99,6 +99,24 @@ p.thread_content {
     margin: 0 auto;
 }
 
+.delete_button {
+    background-color: red;
+    border-radius: 6px;
+    border: black 3px solid;
+    width: 75%;
+    padding: 4px 6px;
+    margin: 0 auto;    
+}
+
+.update_button {
+    background-color: orange;
+    border-radius: 6px;
+    border: black 3px solid;
+    width: 75%;
+    padding: 4px 6px;
+    margin: 0 auto;
+}
+
 
 
 
