@@ -23,7 +23,8 @@ class LandingPage extends React.Component {
       
     }
 
-    render() {        
+    render() {  
+        console.log(this.props.currentUser)      
         return (
             <div className='landing_page'>
                 <nav className="nav_container">
