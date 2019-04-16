@@ -50,7 +50,7 @@ class Category extends React.Component {
     render() {
         return (
             <div className='category_page'>
-      
+
 
                 <button className='back_button' onClick={this.props.history.goBack}>Go Back</button>
 
@@ -60,26 +60,27 @@ class Category extends React.Component {
                 }
                 <div className='category_section'>
                     <div className='category_container'>
-                    <div className="category_thread_column">
-                        {this.state.filteredThreads &&
-                            this.state.filteredThreads.map(thread => (
-                                <div className='category_thread_container' key={thread.id}>
-                                    <Link className='category_container_title' to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
-                                    <p className='category_thread_author'>By: {this.props.users && this.props.users.find(user => user.id === thread.userId).name}</p>
-                                    <p className='category_thread_created_on'>Created on: {new Date(thread.createdAt).toLocaleString()}</p>
+                        <div className="category_thread_column">
+                            {this.state.filteredThreads &&
+                                this.state.filteredThreads.map(thread => (
+                                    <div className='category_thread_container' key={thread.id}>
+                                        <Link className='category_container_title' to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
+                                        <p className='category_thread_author'>By: {this.props.users && this.props.users.find(user => user.id === thread.userId).name}</p>
+                                        <p className='category_thread_created_on'>Created on: {new Date(thread.createdAt).toLocaleString()}</p>
 
-                                </div>
-                            ))
+                                    </div>
+                                ))
+                            }
+                            {/* classes defined in CreateThread.css */}
+
+                        </div>
+                        {this.props.currentUser.id &&
+                            <div className='create_new_thread_widget'>
+                                <h3 className='create_new_thread_title'>Create a new thread</h3>
+                                <CreateThread currentUser={this.props.currentUser} categoryId={this.state.categoryId} getCategoryThreads={this.props.refreshThreads} />
+                            </div>
                         }
-                    {/* classes defined in CreateThread.css */}
 
-                     </div>
-                      {this.props.currentUser.id &&
-                      <div className='create_new_thread_widget'>
-                      <h3 className='create_new_thread_title'>Create a new thread</h3>
-                      <CreateThread  currentUser={this.props.currentUser} categoryId={this.state.categoryId} getCategoryThreads={this.props.refreshThreads}/>
-                      </div>
-                    
                     </div>
 
                 </div>

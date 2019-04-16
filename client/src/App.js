@@ -9,7 +9,8 @@ import CreateComment from './components/CreateComment'
 
 import decode from 'jwt-decode'
 
-const url = 'http://localhost:3001'
+// const url = 'http://localhost:3001'
+const url = 'http://ensemble-ga.herokuapp.com'
 
 let currentUser = { id: null, name: 'Anonymous' }
 class App extends Component {

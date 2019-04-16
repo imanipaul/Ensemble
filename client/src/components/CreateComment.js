@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './Thread.css';
 import './CreateComment.css'
 
-const url = 'http://localhost:3001/comment';
+// const url = 'http://localhost:3001/comment';
+const url = 'http://ensemble-ga.herokuapp.com/comment';
 
 class CreateComment extends Component {
     constructor(props) {

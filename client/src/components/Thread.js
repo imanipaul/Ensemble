@@ -5,7 +5,8 @@ import UpdateThread from './UpdateThread';
 import { withRouter } from 'react-router';
 import LandingPage from './LandingPage';
 
-const url = 'http://localhost:3001'
+// const url = 'http://localhost:3001'
+const url = 'http://ensemble-ga.herokuapp.com'
 
 class Thread extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class Thread extends React.Component {
             content: '',
             update: false,
         }
-    
+
     }
 
     getThreads = async () => {
@@ -71,21 +72,21 @@ class Thread extends React.Component {
                         <p className='thread_created_date'>Created on {createTime.toLocaleString()}</p>
                         <p className='thread_content'>{this.state.thread.content}</p>
 
-                       {this.props.currentUser.id === this.state.thread.userId && 
-                          <button className=" delete_button" id={this.state.threadId} onClick={event => {
-                              this.props.handleDeleteThreads(event);
-                              this.props.history.push('/')
-                          }} >Delete</button>
-                       }
-  
-                       {this.props.currentUser.id === this.state.thread.userId && 
-                          <button className="update_button" onClick={(event) => {
-                              event.preventDefault();
-                              this.setState({
-                                  update: !this.state.update
-                              })
-                          }}>Edit</button>
-                       }
+                        {this.props.currentUser.id === this.state.thread.userId &&
+                            <button className=" delete_button" id={this.state.threadId} onClick={event => {
+                                this.props.handleDeleteThreads(event);
+                                this.props.history.push('/')
+                            }} >Delete</button>
+                        }
+
+                        {this.props.currentUser.id === this.state.thread.userId &&
+                            <button className="update_button" onClick={(event) => {
+                                event.preventDefault();
+                                this.setState({
+                                    update: !this.state.update
+                                })
+                            }}>Edit</button>
+                        }
 
                     </div>
 
@@ -93,9 +94,9 @@ class Thread extends React.Component {
                     <UpdateThread threadId={this.state.threadId} update={this.state.update} getComments={this.getComments} />
 
                     <div className='comment_widget'>
-                    {this.props.currentUser.id &&
-                        <CreateComment getComments={this.props.getComments} threadId={this.state.threadId} update={this.update} getComments={this.props.refreshComments} />
-                    }
+                        {this.props.currentUser.id &&
+                            <CreateComment getComments={this.props.getComments} threadId={this.state.threadId} update={this.update} getComments={this.props.refreshComments} />
+                        }
                     </div>
 
                     <div>
