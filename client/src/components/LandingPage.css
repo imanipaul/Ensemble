@@ -38,9 +38,9 @@
     margin: 0 24px;
 }
 .logout_button {
-    background-color: red;
-    border-radius: 6px;
-    border: white 3px solid;
+    background-color: rgb(233, 70, 70);
+    border-radius: 8px;
+    border: white 2px solid;
     padding: 4px 6px;
     margin: 4px;
     color: black;
@@ -130,7 +130,7 @@ a.recent_posts_items:link {
 }
 .login_button {
     background-color: greenyellow;
-    border-radius: 6px;
+    border-radius: 8px;
     border: white 3px solid;
     width: 75%;
     padding: 4px 6px;
@@ -159,7 +159,7 @@ a.recent_posts_items:link {
 }
 .signup_button {
     background-color: orange;
-    border-radius: 6px;
+    border-radius: 8px;
     border: white 3px solid;
     width: 75%;
     padding: 4px 6px;

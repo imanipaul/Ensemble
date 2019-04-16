@@ -52,7 +52,7 @@ class Category extends React.Component {
             <div className='category_page'>
       
 
-                <button onClick={this.props.history.goBack}>Go Back</button>
+                <button className='back_button' onClick={this.props.history.goBack}>Go Back</button>
 
 
                 {this.state.currentCategory &&
@@ -60,6 +60,7 @@ class Category extends React.Component {
                 }
                 <div className='category_section'>
                     <div className='category_container'>
+                    <div className="category_thread_column">
                         {this.state.filteredThreads &&
                             this.state.filteredThreads.map(thread => (
                                 <div className='category_thread_container' key={thread.id}>
@@ -71,12 +72,14 @@ class Category extends React.Component {
                             ))
                         }
                     {/* classes defined in CreateThread.css */}
-                    {this.props.currentUser.id &&
+
+                     </div>
+                      {this.props.currentUser.id &&
                       <div className='create_new_thread_widget'>
                       <h3 className='create_new_thread_title'>Create a new thread</h3>
                       <CreateThread  currentUser={this.props.currentUser} categoryId={this.state.categoryId} getCategoryThreads={this.props.refreshThreads}/>
                       </div>
-                    }
+                    
                     </div>
 
                 </div>

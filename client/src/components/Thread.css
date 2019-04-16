@@ -130,7 +130,7 @@ p.thread_content {
 }
 
 .go_back_button {
-    background-color: rgb(225, 228, 90);
+    background-color: orange;
     margin: 24px;
     border-radius: 8px;
     padding: 10px;
