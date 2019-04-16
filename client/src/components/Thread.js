@@ -45,7 +45,6 @@ class Thread extends React.Component {
         return threadComments
     }
 
-
     componentDidMount() {
         this.getThreads()
         // this.getComments()
@@ -58,6 +57,9 @@ class Thread extends React.Component {
 
     render() {
         const createTime = new Date(this.state.thread.createdAt)
+        let threadUser = this.props.users.find(user => user.id === this.state.thread.userId)
+        if (!threadUser) threadUser = {name: ''} 
+        console.log(threadUser)
         return (
             <div className='single_thread_page'>
                 {/* <div className='xthread_page_title'> </div> */}
@@ -65,10 +67,9 @@ class Thread extends React.Component {
                 <div className='thread_page_title'>
                     <h1>{this.state.thread.title}</h1>
                 </div>
-
                 <div className='thread_container'>
                     <div className='thread_container_post'>
-                        <p className='thread_author'>By'name' </p>
+                        <p className='thread_author'>By {threadUser.name} </p>
                         <p className='thread_created_date'>Created on {createTime.toLocaleString()}</p>
                         <p className='thread_content'>{this.state.thread.content}</p>
                         <button className=" delete_button" id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
@@ -80,7 +81,7 @@ class Thread extends React.Component {
                         update: !this.state.update
                         })
                         }}>Update</button>
-                    
+
                     </div>
 
 

@@ -68,30 +68,23 @@ app.post('/login', async (req, res) => {
       message: e.message
     })
   }
-})
-
+}) 
 app.post('/signup', async (req, res) => {
-  try {
-    const { email, password, name } = req.body
-    const passwordDigest = await hashPassword(password)
-    const user = User.create({
-      name,
-      email,
-      password_digest: passwordDigest
-    })
-    console.log(user)
-    const token = genToken(user)
-    res.json({
-      token,
-      user,
-      "message": "User successfully created"
-    })
-  }
-  catch (e) {
-    res.status(500).json({
-      message: e.message
-    })
-  }
+
+  const { email, password, name } = req.body
+  const passwordDigest = await hashPassword(password)
+  const user = await User.create({
+    name,
+    email,
+    password_digest: passwordDigest
+  })
+  const token = await genToken(user)
+  res.json({
+    token,
+    user,
+    "message": "User successfully created"
+  })
+
 })
 
 // ===== Regular Endpoints =====
