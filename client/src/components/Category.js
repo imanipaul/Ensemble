@@ -61,7 +61,9 @@ class Category extends React.Component {
                                 <div className='category-thread' key={thread.id}>
 
                                     <Link to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
-                                    <p>By: {this.props.users.find(user => user.id === thread.userId).name}</p>
+                                    {this.props.users &&
+                                        <p>By: {this.props.users.find(user => user.id === thread.userId).name}</p>
+                                    }
                                     <p>Created on: {new Date(thread.createdAt).toLocaleString()}</p>
                                 </div>
 
@@ -71,7 +73,7 @@ class Category extends React.Component {
 
                     </div>
                     <h3>Create a new thread</h3>
-                    <CreateThread currentUser={this.props.currentUser}/>
+                    <CreateThread currentUser={this.props.currentUser} categoryId={this.state.id} />
                 </div>
 
             </div>

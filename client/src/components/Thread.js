@@ -47,7 +47,7 @@ class Thread extends React.Component {
 
     componentDidMount() {
         this.getThreads()
-        // this.getComments()
+        this.getComments()
     }
 
     componentDidUpdate() {
@@ -58,7 +58,7 @@ class Thread extends React.Component {
     render() {
         const createTime = new Date(this.state.thread.createdAt)
         let threadUser = this.props.users.find(user => user.id === this.state.thread.userId)
-        if (!threadUser) threadUser = {name: ''} 
+        if (!threadUser) threadUser = { name: '' }
         console.log(threadUser)
         return (
             <div className='single_thread_page'>
@@ -72,20 +72,22 @@ class Thread extends React.Component {
                         <p className='thread_author'>By {threadUser.name} </p>
                         <p className='thread_created_date'>Created on {createTime.toLocaleString()}</p>
                         <p className='thread_content'>{this.state.thread.content}</p>
-                        <button className=" delete_button" id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
-                        this.props.history.push('/')}} >Delete</button>
-                    
+                        <button className=" delete_button" id={this.state.threadId} onClick={event => {
+                            this.props.handleDeleteThreads(event);
+                            this.props.history.push('/')
+                        }} >Delete</button>
+
                         <button className="update_button" onClick={(event) => {
-                        event.preventDefault();
-                        this.setState({
-                        update: !this.state.update
-                        })
+                            event.preventDefault();
+                            this.setState({
+                                update: !this.state.update
+                            })
                         }}>Update</button>
 
                     </div>
 
 
-                    <UpdateThread threadId={this.state.threadId} update={this.state.update}/>
+                    <UpdateThread threadId={this.state.threadId} update={this.state.update} />
 
                     {/* <button id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
                     this.props.history.push('/')}} >Delete</button> */}
@@ -108,6 +110,6 @@ class Thread extends React.Component {
             </div>
         )
     }
-    }
+}
 
 export default withRouter(Thread);
