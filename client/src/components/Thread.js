@@ -72,20 +72,25 @@ class Thread extends React.Component {
                         <p className='thread_author'>By {threadUser.name} </p>
                         <p className='thread_created_date'>Created on {createTime.toLocaleString()}</p>
                         <p className='thread_content'>{this.state.thread.content}</p>
-                        <button className=" delete_button" id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
+
+                        {this.props.currentUser.id === this.state.thread.userId && 
+                        <div>
+                          <button className=" delete_button" id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
                         this.props.history.push('/')}} >Delete</button>
                     
-                        <button className="update_button" onClick={(event) => {
-                        event.preventDefault();
-                        this.setState({
-                        update: !this.state.update
-                        })
-                        }}>Update</button>
+                          <button className="update_button" onClick={(event) => {
+                            event.preventDefault();
+                            this.setState({
+                              update: !this.state.update
+                            })
+                          }}>Edit</button>
+                        </div>
+                        }
 
                     </div>
 
 
-                    <UpdateThread threadId={this.state.threadId} update={this.state.update}/>
+                    <UpdateThread threadId={this.state.threadId} update={this.state.update} />
 
                     {/* <button id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
                     this.props.history.push('/')}} >Delete</button> */}

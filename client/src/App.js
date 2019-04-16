@@ -193,7 +193,7 @@ this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
         <Switch>
           <Route
             exact path='/'
-            render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} handleLogIn={this.handleLogIn} handleLogOut={this.handleLogOut} handleSignUp={this.handleSignUp} isLoggedIn={this.state.isLoggedIn} />}
+            render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} handleLogIn={this.handleLogIn} handleLogOut={this.handleLogOut} handleSignUp={this.handleSignUp} isLoggedIn={this.state.isLoggedIn} currentUser={currentUser} />}
           />
 
           <Route
@@ -208,7 +208,7 @@ this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
 
           <Route
             path='/Thread/:id'
-            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} handleDeleteThreads={this.handleDeleteThreads} users={this.state.users} />} />
+            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} handleDeleteThreads={this.handleDeleteThreads} currentUser={currentUser} users={this.state.users} />} />
 
           {/* <Route path='/CreateComment' render={() => <CreateComment />} /> */}
         </Switch>
