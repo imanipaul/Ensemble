@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Thread.css';
 
-
 const url = 'http://localhost:3001/comment';
 
 class CreateComment extends Component {
@@ -25,7 +24,6 @@ class CreateComment extends Component {
         let data = {
             content: this.state.content,
             threadId: this.props.threadId
-
         }
         await fetch(url, {
             method: 'POST',
@@ -36,11 +34,9 @@ class CreateComment extends Component {
         }).then(response => {
             return response.json();
         })
-        const commentArray = []
-        commentArray.push(data)
+        this.props.getComments()
         this.setState({
             content: "",
-            // comments: commentArray
         })
 
     }

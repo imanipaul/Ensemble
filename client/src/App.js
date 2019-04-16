@@ -27,7 +27,7 @@ class App extends Component {
     this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
   }
 
-  getThreads() {
+  getThreads = () => {
     fetch(`${url}/thread`)
       .then(response => {
         return response.json();
@@ -79,7 +79,7 @@ class App extends Component {
     this.getCategories();
   }
 
-  getComments() {
+  getComments = () => {
     fetch(`${url}/comment`).then(response => {
       return response.json()
     }).then(data => {
@@ -191,13 +191,13 @@ class App extends Component {
 
           <Route
             path='/Category/:id'
-            render={(props) => <Category {...props} threads={this.state.threads} categories={this.state.categories} currentUser={currentUser} users={this.state.users} />} />
+            render={(props) => <Category {...props} threads={this.state.threads} refreshThreads={this.getThreads} categories={this.state.categories} currentUser={currentUser} users={this.state.users} />} />
 
           <Route path='/Profile' render={() => <Profile />} />
 
           <Route
             path='/Thread/:id'
-            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} handleDeleteThreads={this.handleDeleteThreads} currentUser={currentUser} users={this.state.users} />} />
+            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} refreshComments={this.getComments} handleDeleteThreads={this.handleDeleteThreads} currentUser={currentUser} users={this.state.users} />} />
 
           {/* <Route path='/CreateComment' render={() => <CreateComment />} /> */}
         </Switch>

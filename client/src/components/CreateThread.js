@@ -10,8 +10,6 @@ class CreateThread extends React.Component {
             title: '',
             content: '',
             userId: this.props.currentUser.id,
-            category: '',
-            categoryId: ''
         }
     }
 
@@ -50,10 +48,11 @@ class CreateThread extends React.Component {
         this.setState({
             title: '',
             content: '',
-            category: '',
-            categoryId: '',
-
+            userId: this.props.currentUser.id,
+            categoryId: this.props.categoryId
         })
+
+        this.props.getCategoryThreads()
 
         console.log('setstate cleared')
 
