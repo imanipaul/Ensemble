@@ -87,7 +87,7 @@ p.thread_content {
 
 .comment_input_box {
     height:160px;
-    margin: 8px;
+    margin: 18px 0;
 }
 
 .comment_submit_button {
@@ -122,11 +122,12 @@ p.thread_content {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: white;
+    background-color: rgb(187, 219, 231);
     padding: 18px;
     border-radius: 8px;
     margin: 12px;
     text-align: left;
+    font-style: italic;
 }
 
 .go_back_button {
