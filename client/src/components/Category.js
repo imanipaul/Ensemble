@@ -11,26 +11,26 @@ class Category extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: this.props.match.params.id,
+            categoryId: this.props.match.params.id,
             filteredThreads: [],
             currentCategory: []
         }
 
     }
 
-    getCategoryThreads() {
-        let currentId = parseInt(this.state.id)
+    getCategoryThreads = () => {
+        let currentId = parseInt(this.state.categoryId)
         const filteredThreads = this.props.threads.filter(thread => {
             return thread.categoryId === currentId
         })
         this.setState({
             filteredThreads: filteredThreads
         })
-        return filteredThreads
+        // this.props.refreshThreads()
     }
 
-    getCurrentCategory() {
-        let currentId = parseInt(this.state.id)
+    getCurrentCategory = () => {
+        let currentId = parseInt(this.state.categoryId)
         const currentCategory = this.props.categories.filter(category => {
             return category.id === currentId
         })
@@ -56,7 +56,8 @@ class Category extends React.Component {
 
 
                 {this.state.currentCategory &&
-                    <h1 className='category_page_title'>{this.state.currentCategory.name}</h1>}
+                    <h1 className='category_page_title'>{this.state.currentCategory.name}</h1>
+                }
                 <div className='category_section'>
                     <div className='category_container'>
                     <div className="category_thread_column">
@@ -71,11 +72,14 @@ class Category extends React.Component {
                             ))
                         }
                     {/* classes defined in CreateThread.css */}
-                    </div>
-                    <div className='create_new_thread_widget'>
-                    <h3 className='create_new_thread_title'>Create a new thread</h3>
-                    <CreateThread  currentUser={this.props.currentUser} categoryId={this.state.id} />
-                    </div>
+
+                     </div>
+                      {this.props.currentUser.id &&
+                      <div className='create_new_thread_widget'>
+                      <h3 className='create_new_thread_title'>Create a new thread</h3>
+                      <CreateThread  currentUser={this.props.currentUser} categoryId={this.state.categoryId} getCategoryThreads={this.props.refreshThreads}/>
+                      </div>
+                    
                     </div>
 
                 </div>

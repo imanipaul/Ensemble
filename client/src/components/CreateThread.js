@@ -10,8 +10,6 @@ class CreateThread extends React.Component {
             title: '',
             content: '',
             userId: this.props.currentUser.id,
-            category: '',
-            categoryId: ''
         }
     }
 
@@ -50,16 +48,21 @@ class CreateThread extends React.Component {
         this.setState({
             title: '',
             content: '',
-            category: '',
-            categoryId: '',
-
+            userId: this.props.currentUser.id,
+            categoryId: this.props.categoryId
         })
+
+        this.props.getCategoryThreads()
 
         console.log('setstate cleared')
 
     }
 
     render() {
+        // let categoryDropdown
+        //  categoryDropdown = this.props.categories.map(category => <option value = {category.name}>{category.name}</option> )
+        //  console.log(this.props)
+
         return (
             <div>
                 <form className="new_thread_form" name='thread_post' onSubmit={this.onFormSubmit}>
