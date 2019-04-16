@@ -74,19 +74,20 @@ class Thread extends React.Component {
                         <p className='thread_content'>{this.state.thread.content}</p>
 
                        {this.props.currentUser.id === this.state.thread.userId && 
-                        <div>
                           <button className=" delete_button" id={this.state.threadId} onClick={event => {
                               this.props.handleDeleteThreads(event);
                               this.props.history.push('/')
                           }} >Delete</button>
+                       }
   
+                       {this.props.currentUser.id === this.state.thread.userId && 
                           <button className="update_button" onClick={(event) => {
                               event.preventDefault();
                               this.setState({
                                   update: !this.state.update
                               })
                           }}>Edit</button>
-                        }
+                       }
 
                     </div>
 
