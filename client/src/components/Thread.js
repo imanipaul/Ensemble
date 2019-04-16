@@ -62,7 +62,7 @@ class Thread extends React.Component {
         console.log(threadUser)
         return (
             <div className='single_thread_page'>
-                {/* <div className='xthread_page_title'> </div> */}
+                <button onClick={this.props.history.goBack}>Go Back</button>
 
                 <div className='thread_page_title'>
                     <h1>{this.state.thread.title}</h1>
