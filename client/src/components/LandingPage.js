@@ -18,6 +18,10 @@ class LandingPage extends React.Component {
         this.state = {
         }
     }
+    
+    getRecentThreads() {
+      
+    }
 
     render() {        
         return (
