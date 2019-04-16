@@ -1,14 +1,12 @@
-
-
-.create_new_thread_container {
+/* -- below cited in Category.js -- */
+.create_new_thread_widget {
     background-color: #372248;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 24px;
-    padding: 24px;
-    color: red;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 18px;
     border-radius: 8px;
     width: 200px;
 }
@@ -16,26 +14,40 @@
 .create_new_thread_title {
     color: white;
 }
+/* -- above cited in Category.js -- */
 
-.thread-post {
-    background-color: red;
+.new_thread_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;    
 }
 
-.thread-post-title {
-    background-color: green;
-}
-
-.thread_post_input {
-    background-color: yellow;
+.new_thread_title_input {
+    background-color: white;
     width: 100%;
+    margin-top: 0;
+    margin: 4px 0;
 }
 
-.thread_post_category {
-    background-color: blue;
+.new_thread_text_input {
+    background-color: white;
+    width: 100%;
+    height: 80px;
+    margin: 4px 0;
 }
 
-.thread_post_submit_btn {
+.new_thread_category_input {
+    background-color: white;
+    width: 100%;
+    margin: 4px 0;
+}
+
+.new_thread_submit_btn {
     background-color: purple;
+    width: 74%;
+    margin: 0 auto;
+    border-radius: 8px;
 }
 
 

@@ -55,16 +55,18 @@ class Category extends React.Component {
                         {this.state.filteredThreads &&
                             this.state.filteredThreads.map(thread => (
                                 <div className='category_thread_container' key={thread.id}>
-                                    <Link className='container_title' to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
-                                    <p className='thread_author'>by: name</p>
-                                    <p className='thread_created_on'>created on: {thread.createdAt}</p>
+                                    <Link className='category_container_title' to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
+                                    <p className='category_thread_author'>by: name</p>
+                                    <p className='category_thread_created_on'>created on: {thread.createdAt}</p>
                                 </div>
                             ))
                         }
-                    </div>
-                    <div className='create_new_thread_container'>
+                    
+                    {/* classes defined in CreateThread.css */}
+                    <div className='create_new_thread_widget'>
                     <h3 className='create_new_thread_title'>Create a new thread</h3>
                     <CreateThread />
+                    </div>
                     </div>
                 </div>
 
