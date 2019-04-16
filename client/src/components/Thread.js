@@ -13,7 +13,10 @@ class Thread extends React.Component {
         this.state = {
             threadId: this.props.match.params.id,
             thread: {},
-            threadComments: []
+            threadComments: [],
+            title: '',
+            content: '',
+            update: false
         }
     }
 
@@ -68,13 +71,23 @@ class Thread extends React.Component {
                         <p className='thread_author'>By'name' </p>
                         <p className='thread_created_date'>Created on {createTime.toLocaleString()}</p>
                         <p className='thread_content'>{this.state.thread.content}</p>
+                        <button className=" delete_button" id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
+                        this.props.history.push('/')}} >Delete</button>
+                    
+                        <button className="update_button" onClick={(event) => {
+                        event.preventDefault();
+                        this.setState({
+                        update: !this.state.update
+                        })
+                        }}>Update</button>
+                    
                     </div>
 
 
-                    <UpdateThread threadId={this.state.threadId} />
+                    <UpdateThread threadId={this.state.threadId} update={this.state.update}/>
 
-                    <button id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
-                    this.props.history.push('/')}} >Delete</button>
+                    {/* <button id={this.state.threadId} onClick={event => {this.props.handleDeleteThreads(event);
+                    this.props.history.push('/')}} >Delete</button> */}
 
                     <div className='comment_widget'>
 
