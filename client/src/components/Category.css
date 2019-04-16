@@ -4,8 +4,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    color: white;
 }
 
+.category_page_title {
+    color: white;
+}
 
 .category-thread{
     padding-left: 20px;
@@ -16,7 +20,7 @@
 }
 
 .category-threads{
-    width: 700px;
+    width: 500px;
     padding-left: 50px;
 }
 
@@ -29,6 +33,7 @@
     width: 100vw;
     padding-left: 20px;
     padding-right: 50px;
+    /* background-color: red; */
 }
 
 .category-post{
@@ -38,4 +43,5 @@
     justify-content: space-around;
     align-items: center;
     padding-right: 150px;
+    background-color: green;
 }

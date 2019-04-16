@@ -8,7 +8,7 @@ class CreateThread extends React.Component {
         this.state = {
             title: '',
             content: '',
-            // userId: '',
+            userId: this.props.currentUser.id,
             category: '',
             categoryId: ''
         }
@@ -41,7 +41,8 @@ class CreateThread extends React.Component {
         let data = {
             title: this.state.title,
             content: this.state.content,
-            categoryId: this.state.categoryId
+            categoryId: this.state.categoryId,
+            userId: this.state.userId
         };
 
 

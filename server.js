@@ -9,6 +9,8 @@ const app = express()
 
 const { hashPassword, checkPassword, genToken } = require('./auth.js')
 
+app.use('/', express.static('./build/'))
+
 app.use(bodyParser.json())
 app.use(cors())
 
@@ -21,61 +23,68 @@ app.get('/', (req, res) => {
 // ===== Auth Endpoints =====
 
 app.post('/login', async (req, res) => {
-  let user
-  const { nameOrEmail, password } = req.body
-  if (nameOrEmail.search(/@/) !== -1) {
-    user = await User.findOne({
-      where: {
-        email: {
-          [Op.iLike]: nameOrEmail
+  try {
+    let user
+    const { nameOrEmail, password } = req.body
+    if (nameOrEmail.search(/@/) !== -1) {
+      user = await User.findOne({
+        where: {
+          email: {
+            [Op.iLike]: nameOrEmail
+          }
         }
-      }
-    })
-  } else {
-    user = await User.findOne({
-      where: {
-        name: {
-          [Op.iLike]: nameOrEmail
-        }
-      }
-    })
-  }
-  if (user) {
-    const isUser = await checkPassword(password, user.password_digest)
-    if (isUser) {
-      const token = genToken(user)
-      res.json({
-        token,
-        user,
-        "message": "Logged in!"
       })
     } else {
-      res.json({
-        "message": "Incorrect password"
+      user = await User.findOne({
+        where: {
+          name: {
+            [Op.iLike]: nameOrEmail
+          }
+        }
       })
     }
-  } else {
-    res.json({
-      "message": "Incorrect name or email"
+    if (user) {
+      const isUser = await checkPassword(password, user.password_digest)
+      if (isUser) {
+        const token = genToken(user)
+        res.json({
+          token,
+          user,
+          "message": "Logged in!"
+        })
+      } else {
+        res.json({
+          "message": "Incorrect password"
+        })
+      }
+    } else {
+      res.json({
+        "message": "Incorrect name or email"
+      })
+    }
+  }
+  catch (e) {
+    res.status(500).json({
+      message: e.message
     })
   }
-})
-
+}) 
 app.post('/signup', async (req, res) => {
+
   const { email, password, name } = req.body
   const passwordDigest = await hashPassword(password)
-  const user = User.create({
+  const user = await User.create({
     name,
     email,
     password_digest: passwordDigest
   })
-  console.log(user)
-  const token = genToken(user)
+  const token = await genToken(user)
   res.json({
     token,
     user,
     "message": "User successfully created"
   })
+
 })
 
 // ===== Regular Endpoints =====

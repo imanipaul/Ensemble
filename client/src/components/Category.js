@@ -35,6 +35,7 @@ class Category extends React.Component {
         this.setState({
             currentCategory: currentCategory[0]
         })
+        console.log(this.props)
     }
 
     componentDidMount() {
@@ -49,7 +50,7 @@ class Category extends React.Component {
             <div className='category'>
                 {this.state.currentCategory &&
 
-                    <h1>{this.state.currentCategory.name}</h1>}
+                    <h1 className='category_page_title'>{this.state.currentCategory.name}</h1>}
 
                 <div className='category-info'>
                     <div className='category-threads'>
@@ -60,8 +61,8 @@ class Category extends React.Component {
                                 <div className='category-thread' key={thread.id}>
 
                                     <Link to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
-                                    <p>by: name</p>
-                                    <p>created on: {thread.createdAt}</p>
+                                    <p>By: {this.props.users.find(user => user.id === thread.userId).name}</p>
+                                    <p>Created on: {new Date(thread.createdAt).toLocaleString()}</p>
                                 </div>
 
                             ))
@@ -70,7 +71,11 @@ class Category extends React.Component {
 
                     </div>
                     <h3>Create a new thread</h3>
+<<<<<<< HEAD
                     <CreateThread categories={this.props.categories}/>
+=======
+                    <CreateThread currentUser={this.props.currentUser}/>
+>>>>>>> ac1de06502fb82b1ca00b42e87e1bdd60c01d626
                 </div>
 
             </div>
