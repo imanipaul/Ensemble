@@ -14,10 +14,12 @@ class Thread extends React.Component {
             threadId: this.props.match.params.id,
             thread: {},
             threadComments: [],
-            title: '',
             content: '',
-            update: false
+            update: false,
+            updateComment: false
         }
+        this.update = this.update.bind(this);
+    
     }
 
     async getThreads() {
@@ -31,32 +33,54 @@ class Thread extends React.Component {
         })
     }
 
-    async getComments() {
-        await console.log('comments prop:', this.props.comments)
-        let currentId = parseInt(this.state.threadId)
-        const threadComments = await this.props.comments.filter(comment => {
-            return comment.threadId === currentId
-        })
-        console.log('threadComments:', threadComments)
-        this.setState({
-            threadComments: threadComments
-        })
-        // console.log(this.threadComments)
-        return threadComments
-    }
+    // async getComments() {
+    //     console.log('comments prop:', this.state.comments)
+    //     let currentId = parseInt(this.state.threadId)
+    //     const threadComments = await this.props.comments.filter(comment => {
+    //         return comment.threadId === currentId
+    //     })
+    //     await console.log('threadComments:', threadComments)
+    //     this.setState({
+    //         threadComments: threadComments
+    //     })
+    //     return threadComments
+    // }
+
+    // async getComments() {
+    //     await fetch(`${url}/comment/${this.props.match.params.id}`).then(response => {
+    //         return response.json();
+    //     }).then(data => {
+    //         console.log(data)
+    //         this.setState({
+    //             thread: data.comment
+    //         })
+    //     })
+    // }
 
     componentDidMount() {
         this.getThreads()
         this.getComments()
     }
 
-    componentDidUpdate() {
-        // this.getComments()
+    // componentDidUpdate() {
+    //     this.getComments()
+    // }
+
+    update() {
+        console.log('updating comment')
+        this.setState({
+            updateComment: !this.state.updateComment
+        })
     }
 
 
     render() {
         const createTime = new Date(this.state.thread.createdAt)
+        let currentId = parseInt(this.state.threadId)
+        const threadComments = this.props.comments.filter(comment => {
+            return comment.threadId === currentId
+        })
+        // console.log('threadComments:', threadComments)  
         let threadUser = this.props.users.find(user => user.id === this.state.thread.userId)
         if (!threadUser) threadUser = { name: '' }
         console.log(threadUser)
@@ -99,12 +123,12 @@ class Thread extends React.Component {
 
                     <div className='comment_widget'>
 
-                        <CreateComment threadId={this.state.threadId} />
+                        <CreateComment getComments={this.props.getComments} threadId={this.state.threadId} update={this.update} />
                     </div>
 
                     <div>
-                        {this.state.threadComments &&
-                            this.state.threadComments.map(comment => (
+                        {threadComments.length &&
+                            threadComments.map(comment => (
                                 <p key={comment.id}>{comment.content}</p>
                             ))
                         }

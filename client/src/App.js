@@ -19,8 +19,8 @@ class App extends Component {
     this.state = {
       threads: [],
       categories: [],
-      comments: [],
       users: [],
+      comments: [],
       isLoggedIn: false
     }
     this.getThreads = this.getThreads.bind(this)
@@ -83,7 +83,6 @@ class App extends Component {
     fetch(`${url}/comment`).then(response => {
       return response.json()
     }).then(data => {
-      console.log('comments', data)
       this.setState({
         comments: data
       })

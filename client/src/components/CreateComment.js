@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './Thread.css';
 
+
 const url = 'http://localhost:3001/comment';
 
-export default class CreateComment extends Component {
+class CreateComment extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            content: ""
+            content: "",
+            // comments: []
         }
     }
 
@@ -18,14 +20,14 @@ export default class CreateComment extends Component {
         })
     }
 
-    onFormSubmit = event => {
+    onFormSubmit = async event => {
         event.preventDefault();
         let data = {
             content: this.state.content,
             threadId: this.props.threadId
 
         }
-        fetch(url, {
+        await fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
@@ -34,8 +36,11 @@ export default class CreateComment extends Component {
         }).then(response => {
             return response.json();
         })
+        const commentArray = []
+        commentArray.push(data)
         this.setState({
-            content: ""
+            content: "",
+            // comments: commentArray
         })
 
     }
@@ -44,7 +49,9 @@ export default class CreateComment extends Component {
         return (
             <div className='createCommentPage'>
                 <h3 className="comment_form_title">Respond To This Post</h3>
-                <form onSubmit={this.onFormSubmit} id="comment_form">
+                <form onSubmit={(event) => {
+                    this.onFormSubmit(event)
+                }} id="comment_form">
                     <textarea rows='4' cols='40' className='comment_input_box' value={this.state.content} onChange={this.onFormChange} name='content' placeholder='Enter comments here'></textarea>
                     <button className="comment_submit_button">Comment</button>
 
@@ -55,3 +62,5 @@ export default class CreateComment extends Component {
         )
     }
 }
+
+export default CreateComment;

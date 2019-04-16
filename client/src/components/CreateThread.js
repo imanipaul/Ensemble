@@ -60,6 +60,10 @@ class CreateThread extends React.Component {
     }
 
     render() {
+        // let categoryDropdown
+        //  categoryDropdown = this.props.categories.map(category => <option value = {category.name}>{category.name}</option> )
+        //  console.log(this.props)
+
         return (
             <div>
                 <form className="new_thread_form" name='thread_post' onSubmit={this.onFormSubmit}>
