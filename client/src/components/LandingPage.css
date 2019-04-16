@@ -33,8 +33,8 @@
     background-image: url(../images/ensemble-logo.png);
 }
 .logo-style {
-    width: 150px;
-    height: 50px;
+    width: 220px;
+    height: 100%;
     margin: 0 24px;
 }
 .logout_button {

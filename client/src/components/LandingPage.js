@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
-import logo from '../images/ensemble-logo.png';
+import logo from '../images/logo.png';
 import bgImage from '../images/bgimage.jpg';
 
 const URL = 'http://localhost:3001'
