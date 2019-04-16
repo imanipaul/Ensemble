@@ -39,10 +39,10 @@
 .category_thread_column {
     display: flex;
     flex-direction: column;
+    width: 74%;
 
 }
 .category_thread_container {
-    width: 500px;
     padding-left: 50px;
     background-color: white;
     padding: 24px;
