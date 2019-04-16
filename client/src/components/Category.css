@@ -1,4 +1,4 @@
-.category{
+.category_page {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -6,42 +6,65 @@
     justify-content: space-around;
     color: white;
 }
-
 .category_page_title {
     color: white;
+    text-transform: uppercase;
 }
-
-.category-thread{
-    padding-left: 20px;
+.category_section {
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-}
-
-.category-threads{
-    width: 500px;
-    padding-left: 50px;
-}
-
-.category-info{
-    height: 75vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
+    width: 74%;
     padding-left: 20px;
     padding-right: 50px;
-    /* background-color: red; */
 }
 
-.category-post{
-    height: 400px;
+
+.category_container {
+    padding-left: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding-right: 150px;
-    background-color: green;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
 }
+
+.category_thread_container {
+    width: 500px;
+    padding-left: 50px;
+    background-color: white;
+    padding: 24px;
+    margin: 24px;
+    border-radius: 8px;
+}
+.category_container_title {
+    color: black;
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 20px;
+    align-items: flex-start;
+}
+.category_thread_author {
+    display: flex;
+    color: black;
+    justify-content: flex-start;
+    font-weight: 800;
+    font-size: 20px;
+    margin: 8px;
+}
+
+.category_thread_created_on {
+    display: flex;
+    color: black;
+    justify-content: flex-start;
+    margin: 8px;
+    text-align: left;
+    font-style: oblique;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+
+
+
