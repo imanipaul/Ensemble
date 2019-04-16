@@ -1,4 +1,5 @@
 import React from 'react'
+import './UpdateThread.css';
 
 const url = 'http://localhost:3001'
 
@@ -13,7 +14,7 @@ class UpdateThread extends React.Component {
             // userId: '',
             category: '',
             categoryId: '',
-            update: false
+            
         }
     }
 
@@ -54,26 +55,25 @@ class UpdateThread extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={(event) => {
-                    event.preventDefault();
-                    this.setState({
-                        update: !this.state.update
-                    })
-                }}>Update</button>
+                
 
-                {this.state.update &&
-                    <form name='thread-update' onSubmit={this.onFormSubmit}>
+                {this.props.update &&
+                    <form className='thread_update_widget' onSubmit={this.onFormSubmit}>
+                        <p className="thread_update_widget_title">Update This Thread</p>
+                        <input className='thread_update_title' type='text' placeholder='Add title here' name='title' onChange={this.onFormChange} value={this.state.title}></input>
 
-                        <input className='thread-post-title' type='text' placeholder='Add title here' name='title' onChange={this.onFormChange} value={this.state.title}></input>
+                        <textarea className='thread_update_textarea' rows='4' cols='40' name='content' placeholder='Enter comments here' form='thread-update' onChange={this.onFormChange} value={this.state.content}>Enter post here...</textarea>
 
-                        <textarea rows='4' cols='40' name='content' form='thread-update' onChange={this.onFormChange} value={this.state.content}>Enter post here...</textarea>
+                        <input className='thread_update_category' type='text' placeholder='Add category here' onChange={this.onFormChange} name='category' value={this.state.category}></input>
 
-                        <input className='thread-post-category' type='text' placeholder='Add category here' onChange={this.onFormChange} name='category' value={this.state.category}></input>
+                        <button className='thread_update_submit_btn'>Update</button>
 
-                        <button className='thread-post-submit'>Submit</button>
-
+                        
+                        
                     </form>
+                
                 }
+                
             </div>
         )
     }
