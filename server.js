@@ -93,7 +93,6 @@ app.get('/users', async (req, res) => {
   try {
     const allUsers = await User.findAll({ raw: true })
     res.json({ allUsers })
-    console.log(JSON.stringify(allUsers, null, 2))
   }
   catch (e) {
     console.log(e.message)
