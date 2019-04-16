@@ -1,6 +1,7 @@
 import React from 'react'
 import CreateThread from './CreateThread'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import './Category.css';
 
 
@@ -48,6 +49,9 @@ class Category extends React.Component {
     render() {
         return (
             <div className='category'>
+
+                <button onClick={this.props.history.goBack}>Go Back</button>
+
                 {this.state.currentCategory &&
 
                     <h1 className='category_page_title'>{this.state.currentCategory.name}</h1>}
@@ -61,7 +65,9 @@ class Category extends React.Component {
                                 <div className='category-thread' key={thread.id}>
 
                                     <Link to={`/Thread/${thread.id}`} key={thread.id}>{thread.title}</Link>
-                                    <p>By: {this.props.users.find(user => user.id === thread.userId).name}</p>
+                                    {this.props.users &&
+                                        <p>By: {this.props.users.find(user => user.id === thread.userId).name}</p>
+                                    }
                                     <p>Created on: {new Date(thread.createdAt).toLocaleString()}</p>
                                 </div>
 
@@ -71,7 +77,7 @@ class Category extends React.Component {
 
                     </div>
                     <h3>Create a new thread</h3>
-                    <CreateThread currentUser={this.props.currentUser}/>
+                    <CreateThread currentUser={this.props.currentUser} categoryId={this.state.id} />
                 </div>
 
             </div>

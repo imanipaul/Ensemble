@@ -12,7 +12,7 @@ import decode from 'jwt-decode'
 
 const url = 'http://localhost:3001'
 
-let currentUser = {id: null, name: 'Anonymous'} 
+let currentUser = { id: null, name: 'Anonymous' }
 class App extends Component {
 
   constructor(props) {
@@ -43,7 +43,7 @@ class App extends Component {
   async getUsers() {
     const response = await fetch(`${url}/users`)
     const data = await response.json()
-    await this.setState({users: data.allUsers})
+    await this.setState({ users: data.allUsers })
     await console.log(this.state.users)
   }
 
@@ -122,7 +122,7 @@ class App extends Component {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
-        'Content-Type': 'application/json'
+          'Content-Type': 'application/json'
         }
       })
       const pResp = await resp.json()
@@ -180,7 +180,7 @@ class App extends Component {
     if (localStorage.getItem('token')) {
       currentUser = decode(localStorage.getItem('token'))
     } else {
-      currentUser = {id: null, name: 'Anonymous'}
+      currentUser = { id: null, name: 'Anonymous' }
     }
     console.log(currentUser)
     return (
@@ -190,10 +190,6 @@ class App extends Component {
             exact path='/'
             render={() => <LandingPage threads={this.state.threads} categories={this.state.categories} handleLogIn={this.handleLogIn} handleLogOut={this.handleLogOut} handleSignUp={this.handleSignUp} isLoggedIn={this.state.isLoggedIn} currentUser={currentUser} />}
           />
-
-          <Route
-            path='/Home'
-            render={() => <LoggedIn threads={this.state.threads} categories={this.state.categories} />} />
 
           <Route
             path='/Category/:id'
