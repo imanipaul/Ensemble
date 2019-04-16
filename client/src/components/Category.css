@@ -30,7 +30,6 @@
 }
 
 .container_title {
-    background-color: purple;
     color: white;
     margin-top: 0;
     font-weight: 700;
@@ -49,14 +48,29 @@
     background-color: blue;
 }
 
-.category-post{
+/* .category-post{
     height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding-right: 150px;
-    border: yellow;
+    border: white;
     margin: 24px;
     padding: 24px;
+} */
+.create_new_thread_container {
+    background-color: #372248;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 24px;
+    padding: 24px;
+    color: red;
+    border-radius: 8px;
+    width: 200px;
+}
+.create_new_thread_title {
+    color: white;
 }

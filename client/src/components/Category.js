@@ -61,8 +61,10 @@ class Category extends React.Component {
                             ))
                         }
                     </div>
-                    <h3 className='create_thread_title'>Create a new thread</h3>
+                    <div className='create_new_thread_container'>
+                    <h3 className='create_new_thread_title'>Create a new thread</h3>
                     <CreateThread />
+                    </div>
                 </div>
 
             </div>

@@ -1,0 +1,31 @@
+.create_new_thread_container {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 24px;
+    padding: 24px;
+}
+.thread_title {
+    color: black;
+}
+.thread-post {
+    background-color: red;
+}
+
+.thread-post-title {
+    background-color: green;
+}
+
+.thread_post_input {
+    background-color: yellow;
+}
+
+.thread_post_category {
+    background-color: blue;
+}
+
+.thread_post_submit_btn {
+    background-color: purple;
+}
