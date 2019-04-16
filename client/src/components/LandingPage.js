@@ -18,6 +18,10 @@ class LandingPage extends React.Component {
         this.state = {
         }
     }
+    
+    getRecentThreads() {
+      
+    }
 
     render() {        
         return (
@@ -42,20 +46,24 @@ class LandingPage extends React.Component {
                         </div>
                     </div>
 
-                    <form className='login_form' onSubmit={this.props.handleLogIn}>
-                        <h2 className="login_form_title">Login</h2>
-                        <input className="input_box" type='text' name='nameOrEmail' placeholder='name or email'></input>
-                        <input className="input_box" type='password' name='password' placeholder='password'></input>
-                        <button className="login_button">Login</button>
-                    </form>
+                    {!this.props.currentUser.id && 
+                      <form className='login_form' onSubmit={this.props.handleLogIn}>
+                          <h2 className="login_form_title">Login</h2>
+                          <input className="input_box" type='text' name='nameOrEmail' placeholder='name or email'></input>
+                          <input className="input_box" type='password' name='password' placeholder='password'></input>
+                          <button className="login_button">Login</button>
+                      </form>
+                    }
 
-                    <form className='signup_form' onSubmit={this.props.handleSignUp}>
-                        <h2 className="signup_form_title">Sign Up</h2>
-                        <input className="input_box" type='text' name='name' placeholder='name'></input>
-                        <input className="input_box" type='email' name='email' placeholder='email'></input>
-                        <input className="input_box" type='password' name='password' placeholder='password'></input>
-                        <button className="signup_button">Signup</button>
-                    </form>
+                    {!this.props.currentUser.id && 
+                      <form className='signup_form' onSubmit={this.props.handleSignUp}>
+                          <h2 className="signup_form_title">Sign Up</h2>
+                          <input className="input_box" type='text' name='name' placeholder='name'></input>
+                          <input className="input_box" type='email' name='email' placeholder='email'></input>
+                          <input className="input_box" type='password' name='password' placeholder='password'></input>
+                          <button className="signup_button">Signup</button>
+                      </form>
+                    }
                     
                 </div>
                 <h1 className='tagline_text'>Where General Assembly Alumni and students convene.</h1>
