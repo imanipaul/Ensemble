@@ -1,7 +1,8 @@
 import React from 'react'
 import './UpdateThread.css';
 
-const url = 'http://localhost:3001'
+// const url = 'http://localhost:3001'
+const url = 'http://ensemble-ga.herokuapp.com'
 
 
 class UpdateThread extends React.Component {
@@ -14,7 +15,7 @@ class UpdateThread extends React.Component {
             // userId: '',
             category: '',
             categoryId: '',
-            
+
         }
     }
 
@@ -55,7 +56,7 @@ class UpdateThread extends React.Component {
     render() {
         return (
             <div>
-                
+
 
                 {this.props.update &&
                     <form className='thread_update_widget' onSubmit={this.onFormSubmit}>
@@ -68,12 +69,12 @@ class UpdateThread extends React.Component {
 
                         <button className='thread_update_submit_btn'>Update</button>
 
-                        
-                        
+
+
                     </form>
-                
+
                 }
-                
+
             </div>
         )
     }

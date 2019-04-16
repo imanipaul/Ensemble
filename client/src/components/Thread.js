@@ -5,7 +5,8 @@ import UpdateThread from './UpdateThread';
 import { withRouter } from 'react-router';
 import LandingPage from './LandingPage';
 
-const url = 'http://localhost:3001'
+// const url = 'http://localhost:3001'
+const url = 'http://ensemble-ga.herokuapp.com'
 
 class Thread extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class Thread extends React.Component {
             content: '',
             update: false,
         }
-    
+
     }
 
     getThreads = async () => {
@@ -92,7 +93,8 @@ class Thread extends React.Component {
                     {this.props.currentUser.id &&
                     <div className='comment_widget'>
                         <CreateComment getComments={this.props.getComments} threadId={this.state.threadId} update={this.update} getComments={this.getComments} />
-                    </div>
+
+                   </div>
                     }
 
                     <div>

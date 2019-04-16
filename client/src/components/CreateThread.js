@@ -1,7 +1,8 @@
 import React from 'react'
 import './CreateThread.css';
 
-const url = 'http://localhost:3001'
+// const url = 'http://localhost:3001'
+const url = 'http://ensemble-ga.herokuapp.com'
 
 class CreateThread extends React.Component {
     constructor(props) {
