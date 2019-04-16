@@ -1,7 +1,8 @@
 import React from 'react'
 import CreateThread from './CreateThread'
 import { Link } from 'react-router-dom'
-import './Category.css';
+import './Category.css'
+import './CreateThread.css'
 
 
 

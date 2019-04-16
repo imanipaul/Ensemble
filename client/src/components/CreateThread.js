@@ -73,9 +73,7 @@ class CreateThread extends React.Component {
                     <input className='thread_post_title' type='text' placeholder='Add title here' name='title' onChange={this.onFormChange} value={this.state.title}></input>
                     <textarea className='thread_post_input' rows='4' cols='40' name='content' form='thread-post' onChange={this.onFormChange} value={this.state.content}>Enter new post here...</textarea>
                     <input className='thread_post_category' type='text' placeholder='Add category here' onChange={this.onFormChange} name='category' value={this.state.category}></input>
-
                     <button className='thread_post_submit_btn'>Submit</button>
-
                 </form>
             </div>
         )
