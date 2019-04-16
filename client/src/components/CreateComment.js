@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Thread.css';
+import './CreateComment.css'
 
 const url = 'http://localhost:3001/comment';
 

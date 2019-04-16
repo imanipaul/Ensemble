@@ -60,7 +60,7 @@ class Thread extends React.Component {
         console.log(threadUser)
         return (
             <div className='single_thread_page'>
-                <button onClick={this.props.history.goBack}>Go Back</button>
+                <button className='go_back_button' onClick={this.props.history.goBack}>Go Back</button>
 
                 <div className='thread_page_title'>
                     <h1>{this.state.thread.title}</h1>
@@ -99,9 +99,13 @@ class Thread extends React.Component {
                     </div>
 
                     <div>
-                        {threadComments.length &&
+
+                        {!!threadComments.length &&
                             threadComments.map(comment => (
-                                <p key={comment.id}>{comment.content}</p>
+                                <div className="thread_comment_container">
+                                    <p key={comment.id}>{comment.content}</p>
+                                </div>
+
                             ))
                         }
                     </div>
