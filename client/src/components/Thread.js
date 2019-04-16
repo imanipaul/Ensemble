@@ -14,10 +14,12 @@ class Thread extends React.Component {
             threadId: this.props.match.params.id,
             thread: {},
             threadComments: [],
-            comments: this.props.comments,
             content: '',
-            update: false
+            update: false,
+            updateComment: false
         }
+        this.update = this.update.bind(this);
+    
     }
 
     async getThreads() {
@@ -64,6 +66,13 @@ class Thread extends React.Component {
     //     this.getComments()
     // }
 
+    update() {
+        console.log('updating comment')
+        this.setState({
+            updateComment: !this.state.updateComment
+        })
+    }
+
 
     render() {
         const createTime = new Date(this.state.thread.createdAt)
@@ -71,7 +80,7 @@ class Thread extends React.Component {
         const threadComments = this.props.comments.filter(comment => {
             return comment.threadId === currentId
         })
-        console.log('threadComments:', threadComments)  
+        // console.log('threadComments:', threadComments)  
         let threadUser = this.props.users.find(user => user.id === this.state.thread.userId)
         if (!threadUser) threadUser = {name: ''} 
         console.log(threadUser)
@@ -93,7 +102,7 @@ class Thread extends React.Component {
                         <button className="update_button" onClick={(event) => {
                         event.preventDefault();
                         this.setState({
-                        update: !this.state.update
+                            update: !this.state.update
                         })
                         }}>Update</button>
 
@@ -107,7 +116,7 @@ class Thread extends React.Component {
 
                     <div className='comment_widget'>
 
-                        <CreateComment threadId={this.state.threadId} />
+                        <CreateComment getComments={this.props.getComments} threadId={this.state.threadId} update={this.update} />
                     </div>
 
                     <div>

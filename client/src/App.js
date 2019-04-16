@@ -20,13 +20,14 @@ class App extends Component {
     this.state = {
       threads: [],
       categories: [],
-      comments: [],
       users: [],
+      comments: [],
       isLoggedIn: false
     }
 
 this.getThreads = this.getThreads.bind(this)
 this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
+this.getComments = this.getComments.bind(this)
 
 
    }
