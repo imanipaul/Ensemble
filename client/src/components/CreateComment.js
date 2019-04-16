@@ -6,7 +6,8 @@ export default class CreateComment extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            content: ""
+            content: "",
+            comments: []
         }
     }
 
@@ -33,8 +34,11 @@ export default class CreateComment extends Component {
         }).then(response => {
             return response.json();
         })
+        const commentArray = []
+        commentArray.push(data)
         this.setState({
-            content: ""
+            content: "",
+            comments: commentArray
         })
 
     }

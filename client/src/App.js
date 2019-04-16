@@ -79,7 +79,6 @@ this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
     fetch(`${url}/comment`).then(response => {
       return response.json()
     }).then(data => {
-      console.log('comments', data)
       this.setState({
         comments: data
       })
@@ -160,6 +159,7 @@ this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
 
 
   render() {
+    console.log(this.state.comments)
     return (
       <div className="App">
         <Switch>

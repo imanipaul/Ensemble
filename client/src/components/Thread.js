@@ -13,7 +13,8 @@ class Thread extends React.Component {
         this.state = {
             threadId: this.props.match.params.id,
             thread: {},
-            threadComments: []
+            threadComments: [],
+            comments: this.props.comments
         }
     }
 
@@ -28,19 +29,29 @@ class Thread extends React.Component {
         })
     }
 
-    async getComments() {
-        await console.log('comments prop:', this.props.comments)
-        let currentId = parseInt(this.state.threadId)
-        const threadComments = await this.props.comments.filter(comment => {
-            return comment.threadId === currentId
-        })
-        console.log('threadComments:', threadComments)
-        this.setState({
-            threadComments: threadComments
-        })
-        // console.log(this.threadComments)
-        return threadComments
-    }
+    // async getComments() {
+    //     console.log('comments prop:', this.state.comments)
+    //     let currentId = parseInt(this.state.threadId)
+    //     const threadComments = await this.props.comments.filter(comment => {
+    //         return comment.threadId === currentId
+    //     })
+    //     await console.log('threadComments:', threadComments)
+    //     this.setState({
+    //         threadComments: threadComments
+    //     })
+    //     return threadComments
+    // }
+
+    // async getComments() {
+    //     await fetch(`${url}/comment/${this.props.match.params.id}`).then(response => {
+    //         return response.json();
+    //     }).then(data => {
+    //         console.log(data)
+    //         this.setState({
+    //             thread: data.comment
+    //         })
+    //     })
+    // }
 
 
     componentDidMount() {
@@ -48,13 +59,18 @@ class Thread extends React.Component {
         // this.getComments()
     }
 
-    componentDidUpdate() {
-        // this.getComments()
-    }
+    // componentDidUpdate() {
+    //     this.getComments()
+    // }
 
 
     render() {
         const createTime = new Date(this.state.thread.createdAt)
+        let currentId = parseInt(this.state.threadId)
+        const threadComments = this.props.comments.filter(comment => {
+            return comment.threadId === currentId
+        })
+        console.log('threadComments:', threadComments)  
         return (
             <div className='single-thread-page'>
                 <div className='thread page title'> </div>
@@ -80,8 +96,8 @@ class Thread extends React.Component {
                     </div>
 
                     <div>
-                        {this.state.threadComments &&
-                            this.state.threadComments.map(comment => (
+                        {threadComments.length &&
+                            threadComments.map(comment => (
                                 <p key={comment.id}>{comment.content}</p>
                             ))
                         }
