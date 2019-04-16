@@ -59,18 +59,16 @@ app.post('/login', async (req, res) => {
       "message": "Incorrect name or email"
     })
   }
-})
-
+}) 
 app.post('/signup', async (req, res) => {
   const { email, password, name } = req.body
   const passwordDigest = await hashPassword(password)
-  const user = User.create({
+  const user = await User.create({
     name,
     email,
     password_digest: passwordDigest
   })
-  console.log(user)
-  const token = genToken(user)
+  const token = await genToken(user)
   res.json({
     token,
     user,

@@ -12,8 +12,7 @@ import decode from 'jwt-decode'
 
 const url = 'http://localhost:3001'
 
-let userName = ''
-
+let currentUser = {id: null, name: 'Anonymous'} 
 class App extends Component {
 
   constructor(props) {
@@ -22,6 +21,7 @@ class App extends Component {
       threads: [],
       categories: [],
       comments: [],
+      users: [],
       isLoggedIn: false
     }
 
@@ -37,6 +37,13 @@ class App extends Component {
           threads: data
         })
       })
+  }
+
+  async getUsers() {
+    const response = await fetch(`${url}/users`)
+    const data = await response.json()
+    await this.setState({users: data.allUsers})
+    await console.log(this.state.users)
   }
 
   // delete thread function
@@ -157,9 +164,6 @@ class App extends Component {
     }
   }
 
-
-
-
   componentDidMount() {
     if (localStorage.getItem('token')) {
       this.setState({ isLoggedIn: true })
@@ -167,13 +171,17 @@ class App extends Component {
     this.getThreads()
     this.getCategories()
     this.getComments()
+    this.getUsers()
   }
 
 
   render() {
     if (localStorage.getItem('token')) {
-      userName = decode(localStorage.getItem('token'))
+      currentUser = decode(localStorage.getItem('token'))
+    } else {
+      currentUser = {id: null, name: 'Anonymous'}
     }
+    console.log(currentUser)
     return (
       <div className="App">
         <Switch>
@@ -188,13 +196,13 @@ class App extends Component {
 
           <Route
             path='/Category/:id'
-            render={(props) => <Category {...props} threads={this.state.threads} categories={this.state.categories} />} />
+            render={(props) => <Category {...props} threads={this.state.threads} categories={this.state.categories} currentUser={currentUser} users={this.state.users} />} />
 
           <Route path='/Profile' render={() => <Profile />} />
 
           <Route
             path='/Thread/:id'
-            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} handleDeleteThreads={this.handleDeleteThreads} />} />
+            render={(props) => <Thread {...props} threads={this.state.threads} comments={this.state.comments} handleDeleteThreads={this.handleDeleteThreads} users={this.state.users} />} />
 
           {/* <Route path='/CreateComment' render={() => <CreateComment />} /> */}
         </Switch>

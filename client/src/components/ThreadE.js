@@ -1,7 +1,9 @@
 import React from 'react';
 import './Thread.css';
 import CreateComment from './CreateComment';
-import UpdateThread from './UpdateThread';
+
+const { User, Thread } = require('../../../models/models')
+const { Op } = require('sequelize')
 
 const url = 'http://localhost:3001'
 
@@ -11,7 +13,7 @@ class Thread extends React.Component {
         this.state = {
             threadId: this.props.match.params.id,
             thread: {},
-            threadComments: [],
+            threadComments: []
         }
     }
 
@@ -36,25 +38,19 @@ class Thread extends React.Component {
         this.setState({
             threadComments: threadComments
         })
-        // console.log(this.threadComments)
         return threadComments
     }
+
 
     componentDidMount() {
         this.getThread()
         this.getComments()
     }
 
-    componentDidUpdate() {
-        // this.getComments()
-    }
-
 
     render() {
         const createTime = new Date(this.state.thread.createdAt)
-        let threadUser = this.props.users.find(user => user.id === this.state.thread.userId)
-        if (!threadUser) threadUser = {name: ''} 
-        console.log(threadUser)
+        
         return (
             <div className='single-thread-page'>
                 <div className='thread page title'> </div>
@@ -64,15 +60,10 @@ class Thread extends React.Component {
                 </div>
                 <div className='wrap-thread-boxes'>
                     <div className='threadbox'>
-                        <p>By {threadUser.name} </p>
+                        <p>By'name' </p>
                         <p>Created on {createTime.toLocaleString()}</p>
                         <p>{this.state.thread.content}</p>
                     </div>
-
-
-                    <UpdateThread threadId={this.state.threadId} />
-
-                    <button id={this.state.threadId} onClick={this.props.handleDeleteThreads}>Delete</button>
 
                     <div className='threadpost'>
                         <CreateComment threadId={this.state.threadId} />
