@@ -32,16 +32,15 @@ class Thread extends React.Component {
     }
 
     getComments = async () => {
-        // console.log('comments prop:', this.state.comments)
         let currentId = parseInt(this.state.threadId)
-        const threadComments = await this.props.comments.filter(comment => {
+        const response = await fetch(url + '/comment')
+        const data = await response.json()
+        const threadComments = await data.filter(comment => {
             return comment.threadId === currentId
         })
-        await console.log('threadComments:', threadComments)
         this.setState({
             threadComments: threadComments
         })
-        // this.props.refreshComments()
     }
 
     componentDidMount() {
@@ -52,9 +51,7 @@ class Thread extends React.Component {
     render() {
         const createTime = new Date(this.state.thread.createdAt)
         let currentId = parseInt(this.state.threadId)
-        const threadComments = this.props.comments.filter(comment => {
-            return comment.threadId === currentId
-        })
+        console.log(this.state.threadComments)
         let threadUser = this.props.users.find(user => user.id === this.state.thread.userId)
         if (!threadUser) threadUser = { name: '' }
         console.log(threadUser)
@@ -74,7 +71,7 @@ class Thread extends React.Component {
                        {this.props.currentUser.id === this.state.thread.userId && 
                           <button className=" delete_button" id={this.state.threadId} onClick={event => {
                               this.props.handleDeleteThreads(event);
-                              this.props.history.push('/')
+                              this.props.history.push('/category/' + this.state.thread.categoryId)
                           }} >Delete</button>
                        }
   
@@ -92,16 +89,16 @@ class Thread extends React.Component {
 
                     <UpdateThread threadId={this.state.threadId} update={this.state.update} getComments={this.getComments} />
 
-                    <div className='comment_widget'>
                     {this.props.currentUser.id &&
-                        <CreateComment getComments={this.props.getComments} threadId={this.state.threadId} update={this.update} getComments={this.props.refreshComments} />
-                    }
+                    <div className='comment_widget'>
+                        <CreateComment getComments={this.props.getComments} threadId={this.state.threadId} update={this.update} getComments={this.getComments} />
                     </div>
+                    }
 
                     <div>
 
-                        {!!threadComments.length &&
-                            threadComments.map(comment => (
+                        {!!this.state.threadComments.length &&
+                            this.state.threadComments.map(comment => (
                                 <div className="thread_comment_container">
                                     <p key={comment.id}>{comment.content}</p>
                                 </div>
