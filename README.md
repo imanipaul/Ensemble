@@ -6,6 +6,7 @@
 
 Ensemble is an app that will allow members from the GA family to interact with each other, whether they are students, alumnis or staff members. Members can create threads within six categories, namely, Homework, Projects, Lesson, Services, Food and Student Life and also make comments on any thread.
 
+***
 
 ### Installation
 
@@ -15,6 +16,7 @@ Then install dependencies using `npm install`
 
 Finally, run both the server and client concurrently using `npm run dev`
 
+***
 
 ### Technologies used :
 - React
@@ -28,6 +30,8 @@ Finally, run both the server and client concurrently using `npm run dev`
 - Json Web Token
 - JWT Decode
 - Web Font Loader
+
+***
 
 ## User stories
 
@@ -51,6 +55,8 @@ As an instructor/alumni I would like to ____ so that I can _____.
 * Offer advice...help students learn.
 
 * Log in...create posts.
+
+***
 
 
 ## ERD DIAGRAM:
