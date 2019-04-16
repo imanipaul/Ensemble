@@ -71,11 +71,7 @@ class Category extends React.Component {
 
                     </div>
                     <h3>Create a new thread</h3>
-<<<<<<< HEAD
-                    <CreateThread categories={this.props.categories}/>
-=======
                     <CreateThread currentUser={this.props.currentUser}/>
->>>>>>> ac1de06502fb82b1ca00b42e87e1bdd60c01d626
                 </div>
 
             </div>
