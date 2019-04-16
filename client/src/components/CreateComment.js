@@ -7,7 +7,7 @@ export default class CreateComment extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            content: ""
+            content: "",
         }
     }
 
@@ -22,7 +22,7 @@ export default class CreateComment extends Component {
         event.preventDefault();
         let data = {
             content: this.state.content,
-            threadId: this.props.threadId
+            threadId: this.props.threadId,
 
         }
         fetch(url, {

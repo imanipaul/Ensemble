@@ -11,7 +11,8 @@ class CreateThread extends React.Component {
             content: '',
             userId: this.props.currentUser.id,
             category: '',
-            categoryId: ''
+            categoryId: '',
+            image:''
         }
     }
 
@@ -30,7 +31,8 @@ class CreateThread extends React.Component {
             title: this.state.title,
             content: this.state.content,
             categoryId: parseInt(this.props.categoryId),
-            userId: this.state.userId
+            userId: this.state.userId,
+            image: this.state.image
         };
         // console.log('data', data)
 
@@ -52,6 +54,7 @@ class CreateThread extends React.Component {
             content: '',
             category: '',
             categoryId: '',
+            image:''
 
         })
 
@@ -65,6 +68,7 @@ class CreateThread extends React.Component {
                 <form className="new_thread_form" name='thread_post' onSubmit={this.onFormSubmit}>
                     <input className='new_thread_title_input' type='text' placeholder='Add title here' name='title' onChange={this.onFormChange} value={this.state.title}></input>
                     <textarea className='new_thread_text_input' rows='4' cols='40' name='content' form='thread-post' onChange={this.onFormChange} value={this.state.content}>Enter new post here...</textarea>
+                    <input type='text' name='image' onChange={this.onFormChange} value = {this.state.image} placeholder='image'/>
                     <button className='new_thread_submit_btn'>Submit</button>
                 </form>
             </div>

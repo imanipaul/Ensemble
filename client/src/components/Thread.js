@@ -72,6 +72,8 @@ class Thread extends React.Component {
                         <p className='thread_author'>By {threadUser.name} </p>
                         <p className='thread_created_date'>Created on {createTime.toLocaleString()}</p>
                         <p className='thread_content'>{this.state.thread.content}</p>
+                        <img alt="" src={this.state.thread.image}/>
+                        
 
                        {this.props.currentUser.id === this.state.thread.userId && 
                           <button className=" delete_button" id={this.state.threadId} onClick={event => {

@@ -54,6 +54,9 @@ const Thread = db.define('thread', {
   },
   content: {
     type: Sequelize.TEXT
+  },
+  image: {
+    type: Sequelize.TEXT
   }
 })
 
