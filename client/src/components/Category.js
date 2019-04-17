@@ -5,7 +5,8 @@ import './Category.css'
 import './CreateThread.css'
 import { withRouter } from 'react-router'
 
-const url = 'http://localhost:3001'
+// const url = 'http://localhost:3001'
+const url = 'http://ensemble-ga.herokuapp.com'
 
 class Category extends React.Component {
     constructor(props) {
@@ -23,6 +24,7 @@ class Category extends React.Component {
         let currentId = parseInt(this.state.categoryId)
         const response = await fetch(url + '/thread')
         const data = await response.json()
+        console.log(data)
         const filteredThreads = await data.filter(thread => {
             return thread.categoryId === currentId
         })
@@ -53,7 +55,6 @@ class Category extends React.Component {
         return (
             <div className='category_page'>
 
-
                 <button className='back_button' onClick={this.props.history.goBack}>Go Back</button>
 
                {this.state.currentCategory.id &&
@@ -78,7 +79,7 @@ class Category extends React.Component {
                         {this.props.currentUser.id &&
                             <div className='create_new_thread_widget'>
                                 <h3 className='create_new_thread_title'>Create a new thread</h3>
-                                <CreateThread currentUser={this.props.currentUser} categoryId={this.state.categoryId} getCategoryThreads={this.props.refreshThreads} />
+                                <CreateThread currentUser={this.props.currentUser} categoryId={this.state.categoryId} getCategoryThreads={this.getCategoryThreads} />
                             </div>
                         }
 

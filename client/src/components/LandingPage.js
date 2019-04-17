@@ -4,8 +4,8 @@ import './LandingPage.css';
 import logo from '../images/logo.png';
 import bgImage from '../images/bgimage.jpg';
 
-// const URL = 'http://localhost:3001'
-const URL = 'http://ensemble-ga.herokuapp.com'
+const URL = 'http://localhost:3001'
+// const URL = 'http://ensemble-ga.herokuapp.com'
 
 const styles = {
     content_container: {
