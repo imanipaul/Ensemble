@@ -28,23 +28,16 @@ class App extends Component {
     this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
   }
 
-  getThreads = () => {
-    fetch(`${url}/thread`)
-      .then(response => {
-        return response.json();
-      }).then(data => {
-        console.log(data)
-        this.setState({
-          threads: data
-        })
-      })
+  getThreads = async () => {
+    const response = await fetch(`${url}/thread`)
+    const data = await response.json()
+    this.setState({threads: data})
   }
 
   async getUsers() {
     const response = await fetch(`${url}/users`)
     const data = await response.json()
     await this.setState({ users: data.allUsers })
-    await console.log(this.state.users)
   }
 
   // delete thread function
@@ -62,10 +55,7 @@ class App extends Component {
   async getCategories() {
     const response = await fetch(`${url}/category`)
     const data = await response.json()
-    console.log(data)
-    this.setState({
-      categories: data.allCategories
-    })
+    this.setState({categories: data.allCategories})
   }
 
   //delete Category function
@@ -80,14 +70,10 @@ class App extends Component {
     this.getCategories();
   }
 
-  getComments = () => {
-    fetch(`${url}/comment`).then(response => {
-      return response.json()
-    }).then(data => {
-      this.setState({
-        comments: data
-      })
-    })
+  getComments = async () => {
+    const response = await fetch(`${url}/comment`)
+    const data = response.json()
+    this.setState({comments: data})
   }
 
 
@@ -181,7 +167,6 @@ class App extends Component {
     } else {
       currentUser = { id: null, name: 'Anonymous' }
     }
-    console.log(currentUser)
     return (
       <div className="App">
         <Switch>
