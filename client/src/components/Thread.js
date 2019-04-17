@@ -88,6 +88,27 @@ class Thread extends React.Component {
                             }}>Edit</button>
                         }
 
+                        <div>
+
+                        {!!threadComments.length &&
+                            threadComments.map(comment => (
+                                <div className="thread_comment_container">
+                                    <p key={comment.id}>{comment.content}</p>
+                                </div>
+
+                            ))
+                        }
+                        </div>
+
+
+
+
+
+
+
+
+
+
                     </div>
 
 
@@ -99,7 +120,7 @@ class Thread extends React.Component {
                         }
                     </div>
 
-                    <div>
+                    {/* <div>
 
                         {!!threadComments.length &&
                             threadComments.map(comment => (
@@ -109,7 +130,7 @@ class Thread extends React.Component {
 
                             ))
                         }
-                    </div>
+                    </div> */}
 
                 </div>
 
