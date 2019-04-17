@@ -4,7 +4,6 @@ import './LandingPage.css';
 import logo from '../images/logo.png';
 import bgImage from '../images/bgimage.jpg';
 
-// const URL = 'http://localhost:3001'
 const URL = 'http://ensemble-ga.herokuapp.com'
 
 const styles = {
@@ -25,7 +24,6 @@ class LandingPage extends React.Component {
     }
 
     render() {
-        console.log(this.props.currentUser)
         return (
             <div className='landing_page'>
                 <nav className="nav_container">

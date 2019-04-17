@@ -23,7 +23,6 @@ class CreateThread extends React.Component {
 
     onFormSubmit = async (event) => {
         event.preventDefault()
-        console.log('submitted')
 
         let data = {
             title: this.state.title,
@@ -31,7 +30,6 @@ class CreateThread extends React.Component {
             categoryId: parseInt(this.props.categoryId),
             userId: this.state.userId
         };
-        // console.log('data', data)
 
 
         await fetch(`${url}/thread`, {
@@ -44,8 +42,6 @@ class CreateThread extends React.Component {
             return response.json()
         })
 
-        console.log('fetched')
-
         this.setState({
             title: '',
             content: '',
@@ -55,15 +51,9 @@ class CreateThread extends React.Component {
 
         this.props.getCategoryThreads()
 
-        console.log('setstate cleared')
-
     }
 
     render() {
-        // let categoryDropdown
-        //  categoryDropdown = this.props.categories.map(category => <option value = {category.name}>{category.name}</option> )
-        //  console.log(this.props)
-
         return (
             <div>
                 <form className="new_thread_form" name='thread_post' onSubmit={this.onFormSubmit}>

@@ -5,7 +5,6 @@ import UpdateThread from './UpdateThread';
 import { withRouter } from 'react-router';
 import LandingPage from './LandingPage';
 
-// const url = 'http://localhost:3001'
 const url = 'http://ensemble-ga.herokuapp.com'
 
 class Thread extends React.Component {
@@ -25,7 +24,6 @@ class Thread extends React.Component {
         await fetch(`${url}/thread/${this.props.match.params.id}`).then(response => {
             return response.json();
         }).then(data => {
-            console.log(data)
             this.setState({
                 thread: data.thread
             })
@@ -33,12 +31,10 @@ class Thread extends React.Component {
     }
 
     getComments = async () => {
-        // console.log('comments prop:', this.state.comments)
         let currentId = parseInt(this.state.threadId)
         const threadComments = await this.props.comments.filter(comment => {
             return comment.threadId === currentId
         })
-        await console.log('threadComments:', threadComments)
         this.setState({
             threadComments: threadComments
         })
@@ -58,7 +54,6 @@ class Thread extends React.Component {
         })
         let threadUser = this.props.users.find(user => user.id === this.state.thread.userId)
         if (!threadUser) threadUser = { name: '' }
-        console.log(threadUser)
         return (
             <div className='single_thread_page'>
                 <button className='go_back_button' onClick={this.props.history.goBack}>Go Back</button>

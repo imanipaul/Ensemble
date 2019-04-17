@@ -9,7 +9,6 @@ import CreateComment from './components/CreateComment'
 
 import decode from 'jwt-decode'
 
-// const url = 'http://localhost:3001'
 const url = 'http://ensemble-ga.herokuapp.com'
 
 let currentUser = { id: null, name: 'Anonymous' }
@@ -33,7 +32,6 @@ class App extends Component {
       .then(response => {
         return response.json();
       }).then(data => {
-        console.log(data)
         this.setState({
           threads: data
         })
@@ -44,7 +42,6 @@ class App extends Component {
     const response = await fetch(`${url}/users`)
     const data = await response.json()
     await this.setState({ users: data.allUsers })
-    await console.log(this.state.users)
   }
 
   // delete thread function
@@ -62,7 +59,6 @@ class App extends Component {
   async getCategories() {
     const response = await fetch(`${url}/category`)
     const data = await response.json()
-    console.log(data)
     this.setState({
       categories: data.allCategories
     })
@@ -125,7 +121,6 @@ class App extends Component {
         }
       })
       const pResp = await resp.json()
-      console.log(pResp)
       if (pResp.token) {
         localStorage.setItem('token', pResp.token)
         this.setState({ isLoggedIn: true })
@@ -153,7 +148,6 @@ class App extends Component {
         }
       })
       const pResp = await resp.json()
-      await console.log(pResp)
       if (pResp.token) {
         localStorage.setItem('token', pResp.token)
         this.setState({ isLoggedIn: true })
@@ -181,7 +175,6 @@ class App extends Component {
     } else {
       currentUser = { id: null, name: 'Anonymous' }
     }
-    console.log(currentUser)
     return (
       <div className="App">
         <Switch>

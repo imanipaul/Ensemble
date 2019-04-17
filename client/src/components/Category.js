@@ -5,7 +5,7 @@ import './Category.css'
 import './CreateThread.css'
 import { withRouter } from 'react-router'
 
-
+const url = 'http://ensemble-ga.herokuapp.com'
 
 class Category extends React.Component {
     constructor(props) {
@@ -20,7 +20,9 @@ class Category extends React.Component {
 
     getCategoryThreads = () => {
         let currentId = parseInt(this.state.categoryId)
-        const filteredThreads = this.props.threads.filter(thread => {
+        const response = await fetch(url + '/thread')
+        const data = await response.json()
+        const filteredThreads = await data.filter(thread => {
             return thread.categoryId === currentId
         })
         this.setState({
@@ -37,7 +39,6 @@ class Category extends React.Component {
         this.setState({
             currentCategory: currentCategory[0]
         })
-        console.log(this.props)
     }
 
     componentDidMount() {
@@ -50,7 +51,6 @@ class Category extends React.Component {
     render() {
         return (
             <div className='category_page'>
-
 
                 <button className='back_button' onClick={this.props.history.goBack}>Go Back</button>
 
@@ -77,7 +77,7 @@ class Category extends React.Component {
                         {this.props.currentUser.id &&
                             <div className='create_new_thread_widget'>
                                 <h3 className='create_new_thread_title'>Create a new thread</h3>
-                                <CreateThread currentUser={this.props.currentUser} categoryId={this.state.categoryId} getCategoryThreads={this.props.refreshThreads} />
+                                <CreateThread currentUser={this.props.currentUser} categoryId={this.state.categoryId} getCategoryThreads={this.getCategoryThreads} />
                             </div>
                         }
 

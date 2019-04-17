@@ -9,12 +9,12 @@ const app = express()
 
 const { hashPassword, checkPassword, genToken } = require('./auth.js')
 
-app.use('/', express.static('./build/'))
+// app.use('/', express.static('./build/'))
 
 app.use(bodyParser.json())
 app.use(cors())
 
-const Port = process.env.PORT || 3001
+const Port = process.env.port || 3001
 
 app.get('/', (req, res) => {
   res.send('This is the home page of the server')
@@ -115,8 +115,8 @@ app.get('/category', async (req, res) => {
   try {
     const allCategories = await Category.findAll()
     res.json({ allCategories })
-  } catch (error) {
-    res.statusMessage(500).json({
+  } catch (e) {
+    res.status(500).json({
       message: e.message
     })
     console.log(e.message)
@@ -143,7 +143,6 @@ app.get('/category/name/:name', async (req, res) => {
     const category = await Category.findAll({
       where: {
         name
-
       }
     })
     if (!category) throw Error('Category not found')
@@ -159,10 +158,9 @@ app.get('/thread', async (req, res) => {
     const allThreads = await Thread.findAll()
     res.json(allThreads)
   } catch (error) {
-    res.statusMessage(500).json({
-      message: e.message
+    res.status(500).json({
+      message: error.message
     })
-    console.log(e.message)
   }
 })
 
