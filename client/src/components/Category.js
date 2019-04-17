@@ -18,7 +18,7 @@ class Category extends React.Component {
 
     }
 
-    getCategoryThreads = () => {
+    getCategoryThreads = async () => {
         let currentId = parseInt(this.state.categoryId)
         const response = await fetch(url + '/thread')
         const data = await response.json()
