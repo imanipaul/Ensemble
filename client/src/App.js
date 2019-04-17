@@ -9,7 +9,6 @@ import CreateComment from './components/CreateComment'
 
 import decode from 'jwt-decode'
 
-// const url = 'http://localhost:3001'
 const url = 'http://ensemble-ga.herokuapp.com'
 
 let currentUser = { id: null, name: 'Anonymous' }
@@ -28,10 +27,15 @@ class App extends Component {
     this.handleDeleteThreads = this.handleDeleteThreads.bind(this)
   }
 
-  getThreads = async () => {
-    const response = await fetch(`${url}/thread`)
-    const data = await response.json()
-    this.setState({threads: data})
+  getThreads = () => {
+    fetch(`${url}/thread`)
+      .then(response => {
+        return response.json();
+      }).then(data => {
+        this.setState({
+          threads: data
+        })
+      })
   }
 
   async getUsers() {
@@ -55,7 +59,9 @@ class App extends Component {
   async getCategories() {
     const response = await fetch(`${url}/category`)
     const data = await response.json()
-    this.setState({categories: data.allCategories})
+    this.setState({
+      categories: data.allCategories
+    })
   }
 
   //delete Category function
@@ -70,10 +76,14 @@ class App extends Component {
     this.getCategories();
   }
 
-  getComments = async () => {
-    const response = await fetch(`${url}/comment`)
-    const data = response.json()
-    this.setState({comments: data})
+  getComments = () => {
+    fetch(`${url}/comment`).then(response => {
+      return response.json()
+    }).then(data => {
+      this.setState({
+        comments: data
+      })
+    })
   }
 
 
@@ -111,7 +121,6 @@ class App extends Component {
         }
       })
       const pResp = await resp.json()
-      console.log(pResp)
       if (pResp.token) {
         localStorage.setItem('token', pResp.token)
         this.setState({ isLoggedIn: true })
@@ -139,7 +148,6 @@ class App extends Component {
         }
       })
       const pResp = await resp.json()
-      await console.log(pResp)
       if (pResp.token) {
         localStorage.setItem('token', pResp.token)
         this.setState({ isLoggedIn: true })

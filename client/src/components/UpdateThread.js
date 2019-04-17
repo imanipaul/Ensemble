@@ -1,7 +1,6 @@
 import React from 'react'
 import './UpdateThread.css';
 
-// const url = 'http://localhost:3001'
 const url = 'http://ensemble-ga.herokuapp.com'
 
 
@@ -12,10 +11,8 @@ class UpdateThread extends React.Component {
         this.state = {
             title: '',
             content: '',
-            // userId: '',
             category: '',
-            categoryId: '',
-
+            categoryId: ''
         }
     }
 
