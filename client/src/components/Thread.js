@@ -54,6 +54,8 @@ class Thread extends React.Component {
         })
         let threadUser = this.props.users.find(user => user.id === this.state.thread.userId)
         if (!threadUser) threadUser = { name: '' }
+        console.log(this.props.users)
+        console.log(threadComments)
         return (
             <div className='single_thread_page'>
                 <button className='go_back_button' onClick={this.props.history.goBack}>Go Back</button>
@@ -85,13 +87,15 @@ class Thread extends React.Component {
 
                         <div>
 
-                        {!!threadComments.length &&
-                            threadComments.map(comment => (
+                        {!!threadComments.length && (
+                            threadComments.map(comment => 
                                 <div className="thread_comment_container">
+                                    <h4 style={{textAlign: 'center'}}>By {this.props.users.filter(user => user.id === comment.userId)[0] ? this.props.users.filter(user => user.id === comment.userId)[0].name : 'Anonymous'}</h4>
+                                    <p className='thread_created_date'>Created on {new Date(comment.createdAt).toLocaleString()}</p>
                                     <p key={comment.id}>{comment.content}</p>
                                 </div>
 
-                            ))
+))
                         }
                         </div>
 
@@ -109,11 +113,11 @@ class Thread extends React.Component {
 
                     <UpdateThread threadId={this.state.threadId} update={this.state.update} getComments={this.getComments} />
 
+                    {this.props.currentUser.id &&
                     <div className='comment_widget'>
-                        {this.props.currentUser.id &&
                             <CreateComment getComments={this.props.getComments} threadId={this.state.threadId} update={this.update} getComments={this.props.refreshComments} />
-                        }
                     </div>
+                    }
 
                     {/* <div>
 
